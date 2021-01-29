@@ -1,0 +1,249 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable name="viewModel" type="com.lisaeva.silenttimer.viewmodel.SilentAlarmViewModel" />
+        <variable name="handler" type="com.lisaeva.silenttimer.ui.AlarmFragment" />
+        <import type="android.view.View" />
+        <variable name="repeat" type="java.lang.Boolean" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="16dp"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/label_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/fragment_alarm_title_hint"
+                android:maxLength="35"
+                android:text='@={viewModel.title, default="@string/fragment_alarm_title_default"}' />
+
+            <TextView
+                android:id="@+id/start_date_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/fragment_alarm_hint_start_time"
+                android:onClick="@{()-> handler.onClickStartDate()}"
+                android:text='@{viewModel.startDate, default="@string/fragment_alarm_edittext_start_time"}'
+                android:textSize="20sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="?android:attr/listDivider" />
+
+
+            <TextView
+                android:id="@+id/end_date_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/fragment_alarm_hint_end_time"
+                android:onClick="@{()-> handler.onClickEndDate()}"
+                android:text='@{viewModel.endDate, default="@string/fragment_alarm_edittext_end_time"}'
+                android:textSize="20sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="?android:attr/listDivider" />
+
+            <CheckBox
+                android:id="@+id/checkbox_repeat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="@={viewModel.repeat}"
+                android:text="@string/fragment_alarm_repeat_start_time" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:visibility="@{viewModel.repeat ? View.VISIBLE : View.GONE}">
+
+                <!-- Sunday -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <CheckBox
+                        android:id="@+id/checkbox_sunday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="@={viewModel.sunday}"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fragment_alarm_checkbox_sunday" />
+                </LinearLayout>
+
+                <!-- Monday -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <CheckBox
+                        android:id="@+id/checkbox_monday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="@={viewModel.monday}"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fragment_alarm_checkbox_monday" />
+                </LinearLayout>
+
+                <!-- Tuesday -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <CheckBox
+                        android:id="@+id/checkbox_tuesday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="@={viewModel.tuesday}"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fragment_alarm_checkbox_tuesday" />
+                </LinearLayout>
+
+                <!-- Wednesday -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <CheckBox
+                        android:id="@+id/checkbox_wednesday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="@={viewModel.wednesday}"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fragment_alarm_checkbox_wednesday" />
+                </LinearLayout>
+
+                <!-- Thursday -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <CheckBox
+                        android:id="@+id/checkbox_thursday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="@={viewModel.thursday}"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fragment_alarm_checkbox_thursday" />
+                </LinearLayout>
+
+                <!-- Friday -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <CheckBox
+                        android:id="@+id/checkbox_friday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="@={viewModel.friday}"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fragment_alarm_checkbox_friday" />
+                </LinearLayout>
+
+                <!-- Saturday -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <CheckBox
+                        android:id="@+id/checkbox_saturday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="@={viewModel.saturday}"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fragment_alarm_checkbox_saturday" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <CheckBox
+                android:id="@+id/checkbox_show_discription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="@={viewModel.showDescription}"
+                android:text="@string/fragment_alarm_checkbox_show_description" />
+
+            <EditText
+                android:id="@+id/label_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:text="@={viewModel.description}"
+                android:visibility="@{viewModel.showDescription ? View.VISIBLE : View.GONE }" />
+
+            <TextView
+                android:id="@+id/label_duration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.duration}" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/dummy"
+        android:title=""
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/delete_silent_alarm"
+        android:icon="@drawable/action_delete_silent_alarm"
+        android:title="Delete"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/save_silent_alarm"
+        android:icon="@drawable/action_save_silent_alarm"
+        android:title="Save"
+        app:showAsAction="ifRoom"
+        />
+</menu>

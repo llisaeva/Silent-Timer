@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">SilentTimer</string>
+
+
+    <!-- FRAGMENT ALARM -->
+
+    <!-- Default texts  -->
+    <string name="fragment_alarm_title_default">TITLE</string>
+    <string name="fragment_alarm_checkbox_show_description">Show Discription</string>
+    <string name="fragment_alarm_edittext_start_time">Current</string>
+    <string name="fragment_alarm_edittext_end_time"> ... </string>
+
+    <!-- Labels -->
+    <string name="fragment_alarm_title_hint">Title</string>
+    <string name="fragment_alarm_hint_start_time">Start Time</string>
+    <string name="fragment_alarm_hint_end_time">End Time</string>
+
+    <string name="fragment_alarm_repeat_start_time">Repeat (start time)</string>
+    <string name="fragment_alarm_checkbox_sunday">S</string>
+    <string name="fragment_alarm_checkbox_monday">M</string>
+    <string name="fragment_alarm_checkbox_tuesday">T</string>
+    <string name="fragment_alarm_checkbox_wednesday">W</string>
+    <string name="fragment_alarm_checkbox_thursday">T</string>
+    <string name="fragment_alarm_checkbox_friday">F</string>
+    <string name="fragment_alarm_checkbox_saturday">S</string>
+
+    <!-- Error codes -->
+    <string name="error_end_date_missing">Please enter an end date.</string>
+    <string name="error_general_error">Error</string>
+    <string name="error_main_activity_missing">App not working correctly, please restart it.</string>
+
+    <!-- LIST ITEM ALARM -->
+
+    <!-- Default texts  -->
+    <string name="list_item_alarm_title">Alarm</string>
+
+
+
+
+</resources>
