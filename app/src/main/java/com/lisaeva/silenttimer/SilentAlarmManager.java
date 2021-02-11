@@ -10,23 +10,11 @@ public abstract class SilentAlarmManager {
     public static final int ERROR_ALARM_NOT_VALID = 2;
 
     private static final int MINUTES_IN_DAY = 1440;
-    private static final int INDEX_SUNDAY = 0;
-    private static final int INDEX_MONDAY = 1;
-    private static final int INDEX_TUESDAY = 2;
-    private static final int INDEX_WEDNESDAY = 3;
-    private static final int INDEX_THURSDAY = 4;
-    private static final int INDEX_FRIDAY = 5;
-    private static final int INDEX_SATURDAY = 6;
-
-    private static final String WEEKDAYS_DAILY = "1111111";
-    private static final String WEEKDAYS_NONE = "0000000";
-    private static final char WEEKDAY_CHECKED = '1';
-    private static final char WEEKDAY_UNCHECKED = '0';
 
 
     // Conversions for AlarmFragment ---------------------------------------------------------------
     public static SilentAlarmData copySilentAlarm(SilentAlarmData alarm) {
-        SilentAlarmData clone = AlarmList.createSilentAlarm();
+        SilentAlarmData clone = new SilentAlarmData();
         updateSilentAlarm(clone, alarm);
         return clone;
     }
@@ -63,23 +51,27 @@ public abstract class SilentAlarmManager {
     public static String getDisplayEndDate(SilentAlarmData alarm) { return alarm.getEndDate(); }
     public static boolean getRepeat(SilentAlarmData alarm) { return alarm.getRepeat() == 1 ? true : false; }
 
-    public static boolean getSunday(SilentAlarmData alarm) { return checkWeekDay(alarm, INDEX_SUNDAY); }
-    public static boolean getMonday(SilentAlarmData alarm) { return checkWeekDay(alarm, INDEX_MONDAY); }
-    public static boolean getTuesday(SilentAlarmData alarm) { return checkWeekDay(alarm, INDEX_TUESDAY); }
-    public static boolean getWednesday(SilentAlarmData alarm) { return checkWeekDay(alarm, INDEX_WEDNESDAY); }
-    public static boolean getThursday(SilentAlarmData alarm) { return checkWeekDay(alarm, INDEX_THURSDAY); }
-    public static boolean getFriday(SilentAlarmData alarm) { return checkWeekDay(alarm, INDEX_FRIDAY); }
-    public static boolean getSaturday(SilentAlarmData alarm) { return checkWeekDay(alarm, INDEX_SATURDAY); }
-
+    public static boolean getSunday(SilentAlarmData alarm) { return checkWeekDay(alarm, Codes.SUNDAY.index()); }
+    public static boolean getMonday(SilentAlarmData alarm) { return checkWeekDay(alarm, Codes.MONDAY.index()); }
+    public static boolean getTuesday(SilentAlarmData alarm) { return checkWeekDay(alarm, Codes.TUESDAY.index()); }
+    public static boolean getWednesday(SilentAlarmData alarm) { return checkWeekDay(alarm, Codes.WEDNESDAY.index()); }
+    public static boolean getThursday(SilentAlarmData alarm) { return checkWeekDay(alarm, Codes.THURSDAY.index()); }
+    public static boolean getFriday(SilentAlarmData alarm) { return checkWeekDay(alarm, Codes.FRIDAY.index()); }
+    public static boolean getSaturday(SilentAlarmData alarm) { return checkWeekDay(alarm, Codes.SATURDAY.index()); }
 
     public static boolean getShowDescription(SilentAlarmData alarm) { return alarm.getShowDescription() == 1 ? true : false; }
     public static String getDescription(SilentAlarmData alarm) { return alarm.getDescription(); }
 
     public static String getDuration(SilentAlarmData alarm) { return calculateDurationForDisplay(alarm); }
 
-
     public static String getListItemDisplayDate(SilentAlarmData alarm) {
-        String[] days = new String[] {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
+        String[] days = new String[] { Codes.SATURDAY.toString(),
+                                       Codes.MONDAY.toString(),
+                                       Codes.TUESDAY.toString(),
+                                       Codes.WEDNESDAY.toString(),
+                                       Codes.THURSDAY.toString(),
+                                       Codes.FRIDAY.toString(),
+                                       Codes.SATURDAY.toString() };
 
         char[] weekdays = alarm.getWeekdays().toCharArray();
         StringBuilder sb = new StringBuilder();
@@ -87,7 +79,7 @@ public abstract class SilentAlarmManager {
 
         if (alarm.getRepeat() == 1) {
             sb.append(" (");
-            if(alarm.getWeekdays().equals(WEEKDAYS_DAILY)) {
+            if(alarm.getWeekdays().equals(Codes.DAILY.toString())) {
                 sb.append("daily)");
                 return sb.toString();
             }
@@ -155,8 +147,7 @@ public abstract class SilentAlarmManager {
     // util
     private static boolean checkWeekDay(SilentAlarmData alarm, int index) {
         String weekdays = alarm.getWeekdays();
-        if (weekdays == null) return false;
-        if (weekdays.charAt(index) == WEEKDAY_CHECKED)
+        if (weekdays.charAt(index) == Codes.DAY_CHECKED.symbol())
             return true;
         return false;
     }
@@ -182,36 +173,36 @@ public abstract class SilentAlarmManager {
         int b = repeat ? 1 : 0;
         if (alarm.getRepeat() != b) {
             alarm.setRepeat(b);
-            alarm.setWeekdays(WEEKDAYS_DAILY);
+            alarm.setWeekdays(Codes.DAILY.toString());
         }
     }
 
     public static void setSunday(SilentAlarmData alarm, boolean flag) {
-        setWeekday(alarm, INDEX_SUNDAY, flag);
+        setWeekday(alarm, Codes.SUNDAY.index(), flag);
     }
 
     public static void setMonday(SilentAlarmData alarm, boolean flag) {
-        setWeekday(alarm, INDEX_MONDAY, flag);
+        setWeekday(alarm, Codes.MONDAY.index(), flag);
     }
 
     public static void setTuesday(SilentAlarmData alarm, boolean flag) {
-        setWeekday(alarm, INDEX_TUESDAY, flag);
+        setWeekday(alarm, Codes.TUESDAY.index(), flag);
     }
 
     public static void setWednesday(SilentAlarmData alarm, boolean flag) {
-        setWeekday(alarm, INDEX_WEDNESDAY, flag);
+        setWeekday(alarm, Codes.WEDNESDAY.index(), flag);
     }
 
     public static void setThursday(SilentAlarmData alarm, boolean flag) {
-        setWeekday(alarm, INDEX_THURSDAY, flag);
+        setWeekday(alarm, Codes.THURSDAY.index(), flag);
     }
 
     public static void setFriday(SilentAlarmData alarm, boolean flag) {
-        setWeekday(alarm, INDEX_FRIDAY, flag);
+        setWeekday(alarm, Codes.FRIDAY.index(), flag);
     }
 
     public static void setSaturday(SilentAlarmData alarm, boolean flag) {
-        setWeekday(alarm, INDEX_SATURDAY, flag);
+        setWeekday(alarm, Codes.SUNDAY.index(), flag);
     }
 
     public static void setShowDescription(SilentAlarmData alarm, boolean flag) {
@@ -221,14 +212,14 @@ public abstract class SilentAlarmManager {
     }
 
     private static void setWeekday (SilentAlarmData alarm, int index, boolean flag) {
-        char b = flag ? WEEKDAY_CHECKED : WEEKDAY_UNCHECKED;
+        Codes code = flag ? Codes.DAY_CHECKED : Codes.DAY_UNCHECKED;
         StringBuilder weekdays = new StringBuilder(alarm.getWeekdays());
-        if (weekdays.charAt(index) != b) {
-            weekdays.replace(index, index+1, String.valueOf(b));
+        if (weekdays.charAt(index) != code.symbol()) {
+            weekdays.replace(index, index+1, code.toString());
         }
 
         String result = weekdays.toString();
-        if (result.equals(WEEKDAYS_NONE)) {
+        if (result.equals(Codes.NEVER.toString())) {
             alarm.setRepeat(0);
         }
         alarm.setWeekdays(result);
@@ -237,7 +228,6 @@ public abstract class SilentAlarmManager {
     public static void setDescription(SilentAlarmData alarm, String description) {
         alarm.setDescription(description);
     }
-
 
     // Validates a silentAlarm in SilentAlarmFragment ----------------------------------------------
     // Used when user selects check-mark in the action bar

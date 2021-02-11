@@ -21,8 +21,16 @@ import com.lisaeva.silenttimer.R;
 import com.lisaeva.silenttimer.databinding.ListItemAlarmBinding;
 import com.lisaeva.silenttimer.persistence.SilentAlarmData;
 import com.lisaeva.silenttimer.viewmodel.SilentAlarmViewModel;
+import org.reactivestreams.Subscriber;
+import org.reactivestreams.Subscription;
+import java.util.ArrayList;
+import java.util.List;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.core.Observer;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.disposables.Disposable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 
 public class AlarmListFragment extends Fragment {
@@ -138,7 +146,9 @@ public class AlarmListFragment extends Fragment {
 
     // Adapter class -------------------------------------------------------------------------------
 
-    private class AlarmAdapter extends RecyclerView.Adapter<AlarmHolder> implements Observer<SilentAlarmData> {
+    private class AlarmAdapter extends RecyclerView.Adapter<AlarmHolder> {
+
+        public AlarmAdapter() { }
 
         @NonNull
         @Override
@@ -150,33 +160,15 @@ public class AlarmListFragment extends Fragment {
 
         @Override
         public void onBindViewHolder(@NonNull AlarmHolder holder, int position) {
-            SilentAlarmData alarm = alarmList.get(position);
-            holder.bind(alarm);
+            if (getItemCount() > position) {
+                SilentAlarmData alarm = alarmList.get(position);
+                holder.bind(alarm);
+            }
         }
 
         @Override
         public int getItemCount() {
             return alarmList.size();
-        }
-
-        @Override
-        public void onSubscribe(@io.reactivex.rxjava3.annotations.NonNull Disposable d) {
-
-        }
-
-        @Override
-        public void onNext(@io.reactivex.rxjava3.annotations.NonNull SilentAlarmData silentAlarmData) {
-
-        }
-
-        @Override
-        public void onError(@io.reactivex.rxjava3.annotations.NonNull Throwable e) {
-
-        }
-
-        @Override
-        public void onComplete() {
-
         }
     }
 }

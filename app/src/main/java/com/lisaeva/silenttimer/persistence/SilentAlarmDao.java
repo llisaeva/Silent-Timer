@@ -16,17 +16,17 @@ import io.reactivex.rxjava3.core.Single;
 public interface SilentAlarmDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)//TODO !!
-    Completable insert(SilentAlarmData silentAlarmData);
+    void insert(SilentAlarmData silentAlarmData);
 
     @Update
-    Completable update(SilentAlarmData silentAlarmData);
+    void update(SilentAlarmData silentAlarmData);
 
     @Delete
-    Completable delete(SilentAlarmData silentAlarmData);
+    void delete(SilentAlarmData silentAlarmData);
 
     @Query("SELECT * FROM silent_alarms")
-    Flowable<SilentAlarmData> getAll();
+    List<SilentAlarmData> getAll();
 
     @Query("SELECT * FROM silent_alarms WHERE id = :uuid")
-    Maybe<SilentAlarmData> get(String uuid);
+    SilentAlarmData get(String uuid);
 }

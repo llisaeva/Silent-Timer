@@ -19,11 +19,9 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 public class AlarmList {
     private static AlarmList alarmList;
     private String databaseName = "silent_timer_database";
-    private SilentAlarmDatabase database;
     private SilentAlarmDao silentAlarmDao;
     private List<SilentAlarmData> alarms;
 
-    Observable<SilentAlarmData> observableList;
 
     private SilentAlarmData tempAlarm;
 
@@ -34,39 +32,30 @@ public class AlarmList {
         } return alarmList;
     }
 
-    public static SilentAlarmData createSilentAlarm() {
-        SilentAlarmData alarm = new SilentAlarmData();
-        alarm.setUuid(UUID.randomUUID().toString());
-        return alarm;
-    }
-
     // Private constructor
     private AlarmList(Context context) {
+        SilentAlarmDatabase database = Room.databaseBuilder(context,
+                SilentAlarmDatabase.class, databaseName).allowMainThreadQueries().build();
         silentAlarmDao = database.silentAlarmDao();
-        alarms = new ArrayList<SilentAlarmData>();
-
-
-
-
-
-
-
-
-
-
-
-        tempAlarm = createSilentAlarm();
+        alarms = silentAlarmDao.getAll();
+        tempAlarm = new SilentAlarmData();
     }
 
     public SilentAlarmData getTempAlarm() {
         return tempAlarm;
     }
+
     public void clearTempAlarm() {
-        tempAlarm = createSilentAlarm();
+        tempAlarm = new SilentAlarmData();
     }
 
     public void setTempAlarm(SilentAlarmData alarm) {
         tempAlarm = SilentAlarmManager.copySilentAlarm(alarm);
+    }
+
+    public void add(SilentAlarmData alarm) {
+        silentAlarmDao.insert(alarm);
+        alarms.add(alarm);
     }
 
     public void update(SilentAlarmData alarm) {
@@ -85,25 +74,15 @@ public class AlarmList {
     public SilentAlarmData get(int index) {
         return alarms.get(index);
     }
-    public int size() { return alarms.size(); }
+
+    public int size() {
+        if (alarms == null)return 0;
+        return alarms.size();
+    }
 
 
     // AlarmListFragment.AlarmHolder ---------------------------------------------------------------
     public int getPosition (SilentAlarmData alarm) {
         return alarms.indexOf(alarm);
-    }
-
-    // AlarmFragment -------------------------------------------------------------------------------
-    public void add(SilentAlarmData alarm) {
-        silentAlarmDao.insert(alarm);
-        alarms.add(alarm);
-    }
-
-    private interface DatabaseResultCallback {
-
-    }
-
-    private class DatabaseAccess {
-
     }
 }

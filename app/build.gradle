@@ -46,6 +46,7 @@ dependencies {
     implementation "com.google.android.material:material:$material_v"
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'androidx.room:room-runtime:2.2.6'
+    implementation 'joda-time:joda-time:2.10.10'
 
     implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
     implementation "io.reactivex.rxjava3:rxjava:3.0.9"
@@ -57,5 +58,6 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
-    annotationProcessor 'androidx.room:room-compiler:2.2.6'
+    annotationProcessor 'androidx.room:room-compiler:2.3.0-alpha01'
+
 }

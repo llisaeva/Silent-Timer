@@ -40,6 +40,19 @@ public class SilentAlarmData {
     @ColumnInfo(name="completed_task")
     private int completedTask;
 
+    public SilentAlarmData(String uuid, String title, String description, String startDate, String endDate, String weekdays, int repeat, int showDescription, int on, int completedTask) {
+        this.uuid = uuid;
+        this.title = title;
+        this.description = description;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.weekdays = weekdays;
+        this.repeat = repeat;
+        this.showDescription = showDescription;
+        this.on = on;
+        this.completedTask = completedTask;
+    }
+
     // get() ---------------------------------------------------------------------------------------
 
     public String getUuid() { return uuid; }
