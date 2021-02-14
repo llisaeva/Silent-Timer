@@ -30,9 +30,9 @@ public final class SilentAlarmDatabase_Impl extends SilentAlarmDatabase {
     final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(1) {
       @Override
       public void createAllTables(SupportSQLiteDatabase _db) {
-        _db.execSQL("CREATE TABLE IF NOT EXISTS `silent_alarms` (`id` TEXT NOT NULL, `title` TEXT, `description` TEXT, `start_date` TEXT, `end_date` TEXT, `weekdays` TEXT, `repeat` INTEGER NOT NULL, `show_description` INTEGER NOT NULL, `on` INTEGER NOT NULL, `completed_task` INTEGER NOT NULL, PRIMARY KEY(`id`))");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `silent_alarms` (`id` TEXT NOT NULL, `title` TEXT, `description` TEXT, `start_date` TEXT, `end_date` TEXT, `weekdays` TEXT, `repeat` INTEGER NOT NULL, `show_description` INTEGER NOT NULL, `active` INTEGER NOT NULL, `started` INTEGER NOT NULL, PRIMARY KEY(`id`))");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'd5c2bc2c15cfa5ba9159a21cb1a2c151')");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '46604c6f7d8daa9149b8577370f8a3c9')");
       }
 
       @Override
@@ -85,8 +85,8 @@ public final class SilentAlarmDatabase_Impl extends SilentAlarmDatabase {
         _columnsSilentAlarms.put("weekdays", new TableInfo.Column("weekdays", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsSilentAlarms.put("repeat", new TableInfo.Column("repeat", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsSilentAlarms.put("show_description", new TableInfo.Column("show_description", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsSilentAlarms.put("on", new TableInfo.Column("on", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsSilentAlarms.put("completed_task", new TableInfo.Column("completed_task", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsSilentAlarms.put("active", new TableInfo.Column("active", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsSilentAlarms.put("started", new TableInfo.Column("started", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         final HashSet<TableInfo.ForeignKey> _foreignKeysSilentAlarms = new HashSet<TableInfo.ForeignKey>(0);
         final HashSet<TableInfo.Index> _indicesSilentAlarms = new HashSet<TableInfo.Index>(0);
         final TableInfo _infoSilentAlarms = new TableInfo("silent_alarms", _columnsSilentAlarms, _foreignKeysSilentAlarms, _indicesSilentAlarms);
@@ -98,7 +98,7 @@ public final class SilentAlarmDatabase_Impl extends SilentAlarmDatabase {
         }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "d5c2bc2c15cfa5ba9159a21cb1a2c151", "2d37a43036cf7f4513a60ee9fe002861");
+    }, "46604c6f7d8daa9149b8577370f8a3c9", "7de7dbd8fbd37c0b5c543ac2326d69d5");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)

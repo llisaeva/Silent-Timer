@@ -9,135 +9,134 @@ package com.lisaeva.silenttimer.viewmodel;
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 import com.lisaeva.silenttimer.BR;
-import com.lisaeva.silenttimer.SilentAlarmManager;
-import com.lisaeva.silenttimer.persistence.SilentAlarmData;
+import com.lisaeva.silenttimer.model.SilentAlarm;
 
 public class SilentAlarmViewModel extends BaseObservable {
-    SilentAlarmData silentAlarm;
+    SilentAlarm silentAlarm;
 
-    public SilentAlarmViewModel(SilentAlarmData alarm) { silentAlarm = alarm; }
-
-    @Bindable
-    public String getTitle() { return SilentAlarmManager.getTitle(silentAlarm); }
+    public SilentAlarmViewModel(SilentAlarm alarm) { silentAlarm = alarm; }
 
     @Bindable
-    public String getStartDate() { return SilentAlarmManager.getDisplayStartDate(silentAlarm); }
+    public String getTitle() { return silentAlarm.getTitle(); }
 
     @Bindable
-    public String getEndDate() { return SilentAlarmManager.getDisplayEndDate(silentAlarm); }
+    public String getStartDate() { return silentAlarm.getStartDate(); }
 
     @Bindable
-    public boolean getRepeat() { return SilentAlarmManager.getRepeat(silentAlarm); }
+    public String getEndDate() { return silentAlarm.getEndDate(); }
 
     @Bindable
-    public boolean getSunday() { return SilentAlarmManager.getSunday(silentAlarm); }
+    public boolean getRepeat() { return silentAlarm.isRepeat(); }
 
     @Bindable
-    public boolean getMonday() { return SilentAlarmManager.getMonday(silentAlarm); }
+    public boolean getSunday() { return silentAlarm.getWeekday(SilentAlarm.Code.SUNDAY); }
 
     @Bindable
-    public boolean getTuesday() { return SilentAlarmManager.getTuesday(silentAlarm);}
+    public boolean getMonday() { return silentAlarm.getWeekday(SilentAlarm.Code.MONDAY); }
 
     @Bindable
-    public boolean getWednesday() { return SilentAlarmManager.getWednesday(silentAlarm); }
+    public boolean getTuesday() { return silentAlarm.getWeekday(SilentAlarm.Code.TUESDAY);}
 
     @Bindable
-    public boolean getThursday() { return SilentAlarmManager.getThursday(silentAlarm); }
+    public boolean getWednesday() { return silentAlarm.getWeekday(SilentAlarm.Code.WEDNESDAY); }
 
     @Bindable
-    public boolean getFriday() { return SilentAlarmManager.getFriday(silentAlarm); }
+    public boolean getThursday() { return silentAlarm.getWeekday(SilentAlarm.Code.THURSDAY); }
 
     @Bindable
-    public boolean getSaturday() { return SilentAlarmManager.getSaturday(silentAlarm); }
+    public boolean getFriday() { return silentAlarm.getWeekday(SilentAlarm.Code.FRIDAY); }
 
     @Bindable
-    public boolean getShowDescription() { return SilentAlarmManager.getShowDescription(silentAlarm); }
+    public boolean getSaturday() { return silentAlarm.getWeekday(SilentAlarm.Code.SATURDAY); }
 
     @Bindable
-    public String getDescription() { return SilentAlarmManager.getDescription(silentAlarm); }
+    public boolean getShowDescription() { return silentAlarm.isShowDescription(); }
 
     @Bindable
-    public String getDuration() { return SilentAlarmManager.getDuration(silentAlarm); }
+    public String getDescription() { return silentAlarm.getDescription(); }
 
     @Bindable
-    public String getListItemDisplayDate() { return SilentAlarmManager.getListItemDisplayDate(silentAlarm); }
+    public String getDuration() { return silentAlarm.getDuration(); }
 
-    public int getStartHour() { return SilentAlarmManager.getStartHour(silentAlarm); }
+    @Bindable
+    public String getListItemDisplayDate() { return silentAlarm.getListItemDisplayDate(); }
+
+    public int getStartHour() { return silentAlarm.getStartHour(); }
     public int getStartMinute() {
-        return SilentAlarmManager.getStartMinute(silentAlarm);
+        return silentAlarm.getStartMinute();
     }
-    public int getEndHour() { return SilentAlarmManager.getEndHour(silentAlarm); }
-    public int getEndMinute() { return SilentAlarmManager.getEndMinute(silentAlarm); }
+    public int getEndHour() { return silentAlarm.getEndHour(); }
+    public int getEndMinute() { return silentAlarm.getEndMinute(); }
 
     public void setTitle(String title) {
-        SilentAlarmManager.setTitle(silentAlarm, title);
+        silentAlarm.setTitle(title);
         notifyPropertyChanged(BR.title);
     }
 
     public void setStartDate(int hour, int min) {
-        SilentAlarmManager.setDisplayStartDate(silentAlarm, hour, min);
+        silentAlarm.setStartDate(hour, min);
         notifyPropertyChanged(BR.startDate);
     }
 
     public void setEndDate(int hour, int min) {
-        SilentAlarmManager.setDisplayEndDate(silentAlarm, hour, min);
+        silentAlarm.setEndDate(hour, min);
         notifyPropertyChanged(BR.endDate);
     }
 
     public void setRepeat(boolean repeat) {
-        SilentAlarmManager.setRepeat(silentAlarm, repeat);
+        silentAlarm.setRepeat(repeat);
         notifyChange();
     }
 
     public void setSunday(boolean flag) {
-        SilentAlarmManager.setSunday(silentAlarm, flag);
+        silentAlarm.setWeekday(SilentAlarm.Code.SUNDAY, flag);
         notifyPropertyChanged(BR.sunday);
         notifyPropertyChanged(BR.repeat);
     }
 
     public void setMonday(boolean flag) {
-        SilentAlarmManager.setMonday(silentAlarm, flag);
+        silentAlarm.setWeekday(SilentAlarm.Code.MONDAY, flag);
         notifyPropertyChanged(BR.monday);
         notifyPropertyChanged(BR.repeat);
     }
 
     public void setTuesday(boolean flag) {
-        SilentAlarmManager.setTuesday(silentAlarm, flag);
+        silentAlarm.setWeekday(SilentAlarm.Code.TUESDAY, flag);
         notifyPropertyChanged(BR.tuesday);
         notifyPropertyChanged(BR.repeat);
     }
 
     public void setWednesday(boolean flag) {
-        SilentAlarmManager.setWednesday(silentAlarm, flag);
+        silentAlarm.setWeekday(SilentAlarm.Code.WEDNESDAY, flag);
         notifyPropertyChanged(BR.wednesday);
         notifyPropertyChanged(BR.repeat);
     }
 
     public void setThursday(boolean flag) {
-        SilentAlarmManager.setThursday(silentAlarm, flag);
+        silentAlarm.setWeekday(SilentAlarm.Code.THURSDAY, flag);
         notifyPropertyChanged(BR.thursday);
         notifyPropertyChanged(BR.repeat);
     }
 
     public void setFriday(boolean flag) {
-        SilentAlarmManager.setFriday(silentAlarm, flag);
+        silentAlarm.setWeekday(SilentAlarm.Code.FRIDAY, flag);
         notifyPropertyChanged(BR.friday);
         notifyPropertyChanged(BR.repeat);
     }
 
     public void setSaturday(boolean flag) {
-        SilentAlarmManager.setSaturday(silentAlarm, flag);
+        silentAlarm.setWeekday(SilentAlarm.Code.SATURDAY, flag);
         notifyPropertyChanged(BR.saturday);
         notifyPropertyChanged(BR.repeat);
     }
 
     public void setShowDescription(boolean flag) {
-        SilentAlarmManager.setShowDescription(silentAlarm, flag);
+        silentAlarm.setShowDescription(flag);
         notifyPropertyChanged(BR.showDescription);
     }
 
     public void setDescription(String description) {
-        SilentAlarmManager.setDescription(silentAlarm, description);
+        silentAlarm.setDescription(description);
         notifyPropertyChanged(BR.description);
     }
 }

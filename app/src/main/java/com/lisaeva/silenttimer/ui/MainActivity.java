@@ -1,15 +1,16 @@
 package com.lisaeva.silenttimer.ui;
 
+import android.app.NotificationManager;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import com.lisaeva.silenttimer.ActivityCallback;
+import com.lisaeva.silenttimer.AlarmList;
 import com.lisaeva.silenttimer.R;
-import com.lisaeva.silenttimer.persistence.SilentAlarmData;
-import java.util.Collections;
 
 public class MainActivity extends AppCompatActivity implements ActivityCallback {
     private FragmentManager fragmentManager;
@@ -22,7 +23,24 @@ public class MainActivity extends AppCompatActivity implements ActivityCallback 
     @Override
     public void onCreate(Bundle savedInstance) {
         super.onCreate(savedInstance);
+
+        // -------------------------------------------
+        NotificationManager notificationManager =
+                (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
+                && !notificationManager.isNotificationPolicyAccessGranted()) {
+
+            Intent intent = new Intent(
+                    android.provider.Settings
+                            .ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS);
+
+            startActivity(intent);
+        }
+        // ----------------------------------------
+
         fragmentManager = getSupportFragmentManager();
+        AlarmList list = AlarmList.get(getApplicationContext());
 
         if (savedInstance == null) {
             fragmentManager.beginTransaction()

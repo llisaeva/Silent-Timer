@@ -27,7 +27,7 @@ public class SilentAlarmGenerator {
         clone.setWeekdays(weekdays);
         clone.setRepeat(repeat);
         clone.setShowDescription(showDescription);
-        clone.setOn(on);
+        clone.setActive(on);
         clone.setCompletedTask(completedTask);
         return clone;
     }

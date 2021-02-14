@@ -1,8 +1,11 @@
 package com.lisaeva.silenttimer;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.util.Log;
 import androidx.room.Room;
+import com.lisaeva.silenttimer.model.SilentAlarm;
 import com.lisaeva.silenttimer.persistence.SilentAlarmDao;
 import com.lisaeva.silenttimer.persistence.SilentAlarmData;
 import com.lisaeva.silenttimer.persistence.SilentAlarmDatabase;
@@ -20,10 +23,9 @@ public class AlarmList {
     private static AlarmList alarmList;
     private String databaseName = "silent_timer_database";
     private SilentAlarmDao silentAlarmDao;
-    private List<SilentAlarmData> alarms;
-
-
-    private SilentAlarmData tempAlarm;
+    private List<SilentAlarm> alarms;
+    private Context context;
+    private SilentAlarm tempAlarm;
 
     // Singleton
     public static AlarmList get(Context context) {
@@ -33,45 +35,67 @@ public class AlarmList {
     }
 
     // Private constructor
-    private AlarmList(Context context) {
+    private AlarmList(Context c) {
+        this.context = c.getApplicationContext();
+        alarms = new ArrayList<SilentAlarm>();
         SilentAlarmDatabase database = Room.databaseBuilder(context,
-                SilentAlarmDatabase.class, databaseName).allowMainThreadQueries().build();
+                SilentAlarmDatabase.class, databaseName).
+                allowMainThreadQueries().build();
+
         silentAlarmDao = database.silentAlarmDao();
-        alarms = silentAlarmDao.getAll();
-        tempAlarm = new SilentAlarmData();
+        for (SilentAlarmData alarm : silentAlarmDao.getAll()) {
+            alarms.add(new SilentAlarm(alarm));
+        }
+        tempAlarm = new SilentAlarm();
     }
 
-    public SilentAlarmData getTempAlarm() {
+    public SilentAlarm getTempAlarm() {
         return tempAlarm;
     }
-
     public void clearTempAlarm() {
-        tempAlarm = new SilentAlarmData();
+        tempAlarm = new SilentAlarm();
     }
+    public void setTempAlarm(SilentAlarm alarm) { tempAlarm.copyContent(alarm); }
 
-    public void setTempAlarm(SilentAlarmData alarm) {
-        tempAlarm = SilentAlarmManager.copySilentAlarm(alarm);
-    }
-
-    public void add(SilentAlarmData alarm) {
+    public void add(SilentAlarm alarm) {
         silentAlarmDao.insert(alarm);
+        Log.e("ALARM IN ALARMLIST", alarm.getTitle());
         alarms.add(alarm);
+        Intent intent = new Intent(context, SilentAlarmInitiator.class);
+        intent.setAction(SilentAlarmInitiator.ACTION_ACTIVATE);
+        intent.replaceExtras(alarm.toBundle());
+        context.sendBroadcast(intent);
     }
 
-    public void update(SilentAlarmData alarm) {
-        SilentAlarmManager.updateSilentAlarm(alarm, tempAlarm);
+    public void update(SilentAlarm alarm) {
+        Intent toDelete = new Intent(context, SilentAlarmInitiator.class);
+        toDelete.setAction(SilentAlarmInitiator.ACTION_DEACTIVATE);
+        toDelete.replaceExtras(alarm.toBundle());
+        context.sendBroadcast(toDelete);
+
+        alarm.copyContent(tempAlarm);
         silentAlarmDao.update(alarm);
+
+        Intent toCreate = new Intent(context, SilentAlarmInitiator.class);
+        toCreate.setAction(SilentAlarmInitiator.ACTION_ACTIVATE);
+        toCreate.replaceExtras(alarm.toBundle());
+        context.sendBroadcast(toCreate);
     }
 
     public void remove(int index) {
-        SilentAlarmData alarm = alarms.get(index);
+        SilentAlarm alarm = alarms.get(index);
+
+        Intent toDelete = new Intent(context, SilentAlarmInitiator.class);
+        toDelete.setAction(SilentAlarmInitiator.ACTION_DEACTIVATE);
+        toDelete.replaceExtras(alarm.toBundle());
+        context.sendBroadcast(toDelete);
+
         silentAlarmDao.delete(alarm);
         alarms.remove(index);
     }
 
-
     // AlarmListFragment.AlarmAdapter --------------------------------------------------------------
-    public SilentAlarmData get(int index) {
+    public SilentAlarm get(int index) {
         return alarms.get(index);
     }
 
@@ -80,9 +104,8 @@ public class AlarmList {
         return alarms.size();
     }
 
-
     // AlarmListFragment.AlarmHolder ---------------------------------------------------------------
-    public int getPosition (SilentAlarmData alarm) {
+    public int getPosition (SilentAlarm alarm) {
         return alarms.indexOf(alarm);
     }
 }

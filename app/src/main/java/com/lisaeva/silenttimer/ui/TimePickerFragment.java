@@ -3,6 +3,7 @@ package com.lisaeva.silenttimer.ui;
 import android.app.Dialog;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TimePicker;
@@ -31,6 +32,8 @@ public class TimePickerFragment extends DialogFragment {
 
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 
+
+
         View view = LayoutInflater.from(getActivity()).inflate(ID_DIALOG_LAYOUT, null);
         timePicker = view.findViewById(ID_TIME_PICKER);
         timePicker.setIs24HourView(true);
@@ -45,7 +48,6 @@ public class TimePickerFragment extends DialogFragment {
             savedHour = viewModel.getEndHour();
             savedMinute = viewModel.getEndMinute();
         }
-
 
         if (Build.VERSION.SDK_INT < 23) {
             timePicker.setCurrentHour(savedHour);

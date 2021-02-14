@@ -2,6 +2,7 @@ package com.lisaeva.silenttimer.ui;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -18,7 +19,7 @@ import com.lisaeva.silenttimer.AlarmList;
 import com.lisaeva.silenttimer.SilentAlarmManager;
 import com.lisaeva.silenttimer.R;
 import com.lisaeva.silenttimer.databinding.FragmentAlarmBinding;
-import com.lisaeva.silenttimer.persistence.SilentAlarmData;
+import com.lisaeva.silenttimer.model.SilentAlarm;
 import com.lisaeva.silenttimer.viewmodel.SilentAlarmViewModel;
 
 public class AlarmFragment extends Fragment {
@@ -28,8 +29,8 @@ public class AlarmFragment extends Fragment {
     private static int ID_FRAGMENT_LAYOUT = R.layout.fragment_alarm;
     private static final boolean HAS_OPTIONS_MENU = true;
 
-    private SilentAlarmData alarm;
-    private SilentAlarmData temporary;
+    private SilentAlarm alarm;
+    private SilentAlarm temporary;
     private FragmentAlarmBinding fragmentAlarmBinding;
     private ActivityCallback activityCallback;
     private AlarmList alarmList;
@@ -55,6 +56,8 @@ public class AlarmFragment extends Fragment {
         }
 
         temporary = alarmList.getTempAlarm();
+
+        Log.d("TEMPALARM", temporary.getTitle());
 
         Activity activity = getActivity();
 

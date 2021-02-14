@@ -2,14 +2,9 @@ package com.lisaeva.silenttimer;
 
 import com.lisaeva.silenttimer.persistence.SilentAlarmData;
 import java.text.SimpleDateFormat;
-import java.time.DayOfWeek;
-import java.time.Duration;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 import java.util.Random;
 import java.util.UUID;
@@ -43,7 +38,7 @@ public class AlarmDummyCreator {
         clone.setWeekdays(weekdays);
         clone.setRepeat(repeat);
         clone.setShowDescription(showDescription);
-        clone.setOn(on);
+        clone.setActive(on);
         clone.setCompletedTask(completedTask);
         return clone;
     }

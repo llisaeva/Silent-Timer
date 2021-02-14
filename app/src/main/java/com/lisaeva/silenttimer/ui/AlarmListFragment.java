@@ -16,21 +16,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.lisaeva.silenttimer.ActivityCallback;
 import com.lisaeva.silenttimer.AlarmList;
-import com.lisaeva.silenttimer.SilentAlarmManager;
 import com.lisaeva.silenttimer.R;
 import com.lisaeva.silenttimer.databinding.ListItemAlarmBinding;
-import com.lisaeva.silenttimer.persistence.SilentAlarmData;
+import com.lisaeva.silenttimer.model.SilentAlarm;
 import com.lisaeva.silenttimer.viewmodel.SilentAlarmViewModel;
-import org.reactivestreams.Subscriber;
-import org.reactivestreams.Subscription;
-import java.util.ArrayList;
-import java.util.List;
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
-import io.reactivex.rxjava3.core.Observable;
-import io.reactivex.rxjava3.core.Observer;
-import io.reactivex.rxjava3.disposables.CompositeDisposable;
-import io.reactivex.rxjava3.disposables.Disposable;
-import io.reactivex.rxjava3.schedulers.Schedulers;
 
 
 public class AlarmListFragment extends Fragment {
@@ -45,7 +34,6 @@ public class AlarmListFragment extends Fragment {
     private static final int ID_RECYCLER_VIEW = R.id.alarm_recycler_view;
     private static final int ID_LIST_ITEM = R.layout.list_item_alarm;
     private static final int ID_MENU = R.menu.fragment_alarm_list;
-
 
     // Life Cycle ----------------------------------------------------------------------------------
 
@@ -102,10 +90,9 @@ public class AlarmListFragment extends Fragment {
         }
         alarmRecyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
-
     }
 
-    private void openAlarmFragment(SilentAlarmData alarm) {
+    private void openAlarmFragment(SilentAlarm alarm) {
         if (activityCallback != null) {
             Bundle bundle = new Bundle();
             if (alarm != null) {
@@ -124,7 +111,7 @@ public class AlarmListFragment extends Fragment {
     // ViewHolder class ----------------------------------------------------------------------------
 
     private class AlarmHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        private SilentAlarmData alarm;
+        private SilentAlarm alarm;
         private ListItemAlarmBinding binding;
 
         public AlarmHolder(ListItemAlarmBinding binding) {
@@ -133,7 +120,7 @@ public class AlarmListFragment extends Fragment {
             itemView.setOnClickListener(this);
         }
 
-        public void bind(SilentAlarmData alarm) {
+        public void bind(SilentAlarm alarm) {
             this.alarm = alarm;
             binding.setViewModel(new SilentAlarmViewModel(alarm));
         }
@@ -148,7 +135,7 @@ public class AlarmListFragment extends Fragment {
 
     private class AlarmAdapter extends RecyclerView.Adapter<AlarmHolder> {
 
-        public AlarmAdapter() { }
+        public AlarmAdapter() {}
 
         @NonNull
         @Override
@@ -161,7 +148,7 @@ public class AlarmListFragment extends Fragment {
         @Override
         public void onBindViewHolder(@NonNull AlarmHolder holder, int position) {
             if (getItemCount() > position) {
-                SilentAlarmData alarm = alarmList.get(position);
+                SilentAlarm alarm = alarmList.get(position);
                 holder.bind(alarm);
             }
         }

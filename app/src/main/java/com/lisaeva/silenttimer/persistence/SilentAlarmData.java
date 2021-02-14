@@ -3,6 +3,7 @@ package com.lisaeva.silenttimer.persistence;
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "silent_alarms")
@@ -34,13 +35,13 @@ public class SilentAlarmData {
     @ColumnInfo(name="show_description")
     private int showDescription;
 
-    @ColumnInfo(name="on")
-    private int on;
+    @ColumnInfo(name="active")
+    private int active;
 
-    @ColumnInfo(name="completed_task")
-    private int completedTask;
+    @ColumnInfo(name="started")
+    private int started;
 
-    public SilentAlarmData(String uuid, String title, String description, String startDate, String endDate, String weekdays, int repeat, int showDescription, int on, int completedTask) {
+    public SilentAlarmData(String uuid, String title, String description, String startDate, String endDate, String weekdays, int repeat, int showDescription, int active, int started) {
         this.uuid = uuid;
         this.title = title;
         this.description = description;
@@ -49,8 +50,8 @@ public class SilentAlarmData {
         this.weekdays = weekdays;
         this.repeat = repeat;
         this.showDescription = showDescription;
-        this.on = on;
-        this.completedTask = completedTask;
+        this.active = active;
+        this.started = started;
     }
 
     // get() ---------------------------------------------------------------------------------------
@@ -64,8 +65,8 @@ public class SilentAlarmData {
 
     public int getRepeat() { return repeat; }
     public int getShowDescription() { return showDescription; }
-    public int getOn() { return on; }
-    public int getCompletedTask() { return completedTask; }
+    public int getActive() { return active; }
+    public int getStarted() { return started; }
 
     // set() ---------------------------------------------------------------------------------------
 
@@ -78,6 +79,17 @@ public class SilentAlarmData {
 
     public void setRepeat(int repeat) { this.repeat = repeat; }
     public void setShowDescription(int showDescription) { this.showDescription = showDescription; }
-    public void setOn(int on) { this.on = on; }
-    public void setCompletedTask(int completedTask) { this.completedTask = completedTask; }
+    public void setActive(int active) { this.active = active; }
+    public void setStarted(int started) { this.started = started; }
+
+    @Ignore
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof SilentAlarmData) {
+            SilentAlarmData alarm = (SilentAlarmData) o;
+            if (this.uuid.equals(alarm.getUuid()))
+                return true;
+        }
+        return false;
+    }
 }
