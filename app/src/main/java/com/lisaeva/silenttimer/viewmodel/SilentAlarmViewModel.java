@@ -6,6 +6,7 @@
 
 package com.lisaeva.silenttimer.viewmodel;
 
+import android.util.Log;
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 import com.lisaeva.silenttimer.BR;
@@ -95,9 +96,12 @@ public class SilentAlarmViewModel extends BaseObservable {
     }
 
     public void setMonday(boolean flag) {
-        silentAlarm.setWeekday(SilentAlarm.Code.MONDAY, flag);
-        notifyPropertyChanged(BR.monday);
-        notifyPropertyChanged(BR.repeat);
+        Log.d("setMonday()", String.valueOf(flag));
+        if (getMonday() != flag) {
+            silentAlarm.setWeekday(SilentAlarm.Code.MONDAY, flag);
+            notifyPropertyChanged(BR.monday);
+            notifyPropertyChanged(BR.repeat);
+        }
     }
 
     public void setTuesday(boolean flag) {

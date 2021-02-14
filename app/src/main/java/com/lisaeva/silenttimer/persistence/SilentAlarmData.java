@@ -41,7 +41,10 @@ public class SilentAlarmData {
     @ColumnInfo(name="started")
     private int started;
 
-    public SilentAlarmData(String uuid, String title, String description, String startDate, String endDate, String weekdays, int repeat, int showDescription, int active, int started) {
+    @ColumnInfo(name="handle")
+    private String handle;
+
+    public SilentAlarmData(String uuid, String title, String description, String startDate, String endDate, String weekdays, int repeat, int showDescription, int active, int started, String handle) {
         this.uuid = uuid;
         this.title = title;
         this.description = description;
@@ -52,6 +55,7 @@ public class SilentAlarmData {
         this.showDescription = showDescription;
         this.active = active;
         this.started = started;
+        this.handle = handle;
     }
 
     // get() ---------------------------------------------------------------------------------------
@@ -67,6 +71,7 @@ public class SilentAlarmData {
     public int getShowDescription() { return showDescription; }
     public int getActive() { return active; }
     public int getStarted() { return started; }
+    public String getHandle() { return handle; }
 
     // set() ---------------------------------------------------------------------------------------
 
@@ -81,6 +86,7 @@ public class SilentAlarmData {
     public void setShowDescription(int showDescription) { this.showDescription = showDescription; }
     public void setActive(int active) { this.active = active; }
     public void setStarted(int started) { this.started = started; }
+    public void setHandle(String handle) {this.handle = handle; }
 
     @Ignore
     @Override

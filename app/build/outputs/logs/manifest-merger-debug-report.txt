@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:2:1-35:12
-INJECTED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:2:1-35:12
-INJECTED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:2:1-35:12
-INJECTED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:2:1-35:12
+ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:2:1-34:12
+INJECTED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:2:1-34:12
+INJECTED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:2:1-34:12
+INJECTED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:2:1-34:12
 MERGED from [androidx.databinding:databinding-adapters:4.1.2] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\d71154eb53e02a63e9d257744621dbab\databinding-adapters-4.1.2\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.databinding:databinding-runtime:4.1.2] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\b78ca28a8f1e1c51d7f2b154453e445d\databinding-runtime-4.1.2\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.material:material:1.2.1] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\95fea1abc6992a5307b25fe35fac1247\material-1.2.1\AndroidManifest.xml:17:1-24:12
@@ -40,20 +40,20 @@ MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] C:\Users\lisli\.g
 MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\4bcb2df84b64047b1f70d087d97acaac\core-runtime-2.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\42da6144e2ae8c5301332bc76f990b08\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\e116204df91b04b819eac48184c022af\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:17:1-24:12
-INJECTED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:2:1-35:12
-INJECTED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:2:1-35:12
-INJECTED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:2:1-35:12
+INJECTED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:2:1-34:12
+INJECTED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:2:1-34:12
+INJECTED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:2:1-34:12
 	package
 		ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:3:5-38
 		INJECTED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:2:1-35:12
+		ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:2:1-34:12
 		INJECTED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:2:1-35:12
+		ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:2:1-34:12
 		INJECTED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:2:11-69
@@ -62,7 +62,7 @@ ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\A
 	android:name
 		ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:5:22-82
 application
-ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:7:5-33:19
+ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:7:5-32:19
 MERGED from [com.google.android.material:material:1.2.1] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\95fea1abc6992a5307b25fe35fac1247\material-1.2.1\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.2.1] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\95fea1abc6992a5307b25fe35fac1247\material-1.2.1\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\5842209fb9f5a48b90a2c69659706a2c\constraintlayout-2.0.4\AndroidManifest.xml:9:5-20
@@ -88,13 +88,13 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\li
 	android:theme
 		ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:13:9-49
 receiver#com.lisaeva.silenttimer.SilentAlarmInitiator
-ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:17:9-24:20
+ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:17:9-23:20
 	android:exported
 		ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:17:56-79
 	android:name
 		ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:17:19-54
-intent-filter#action:name:com.lisaeva.silenttimer.ACTIVATE_SILENT_TIMER+action:name:com.lisaeva.silenttimer.DEACTIVATE_SILENT_TIMER+action:name:com.lisaeva.silenttimer.START_SILENT_TIMER+action:name:com.lisaeva.silenttimer.STOP_SILENT_TIMER
-ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:18:13-23:29
+intent-filter#action:name:com.lisaeva.silenttimer.ACTIVATE_SILENT_TIMER+action:name:com.lisaeva.silenttimer.START_SILENT_TIMER+action:name:com.lisaeva.silenttimer.STOP_SILENT_TIMER
+ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:18:13-22:29
 action#com.lisaeva.silenttimer.START_SILENT_TIMER
 ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:19:17-84
 	android:name
@@ -107,24 +107,20 @@ action#com.lisaeva.silenttimer.ACTIVATE_SILENT_TIMER
 ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:21:17-88
 	android:name
 		ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:21:25-85
-action#com.lisaeva.silenttimer.DEACTIVATE_SILENT_TIMER
-ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:22:17-90
-	android:name
-		ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:22:25-87
 activity#com.lisaeva.silenttimer.ui.MainActivity
-ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:26:9-31:20
+ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:25:9-30:20
 	android:name
-		ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:26:19-50
+		ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:25:19-50
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:27:13-30:29
+ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:26:13-29:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:28:17-69
+ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:27:17-69
 	android:name
-		ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:28:25-66
+		ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:27:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:29:17-77
+ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:28:17-77
 	android:name
-		ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:29:27-74
+		ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:28:27-74
 uses-sdk
 INJECTED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml

@@ -57,8 +57,6 @@ public class AlarmFragment extends Fragment {
 
         temporary = alarmList.getTempAlarm();
 
-        Log.d("TEMPALARM", temporary.getTitle());
-
         Activity activity = getActivity();
 
         if (activity instanceof ActivityCallback) {

@@ -15,7 +15,7 @@
 11-->C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:5:22-82
 12
 13    <application
-13-->C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:7:5-33:19
+13-->C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:7:5-32:19
 14        android:allowBackup="true"
 14-->C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:8:9-35
 15        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -33,13 +33,13 @@
 22        android:theme="@style/Theme.SilentTimer" >
 22-->C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:13:9-49
 23        <receiver
-23-->C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:17:9-24:20
+23-->C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:17:9-23:20
 24            android:name="com.lisaeva.silenttimer.SilentAlarmInitiator"
 24-->C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:17:19-54
 25            android:exported="true" >
 25-->C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:17:56-79
 26            <intent-filter>
-26-->C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:18:13-23:29
+26-->C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:18:13-22:29
 27                <action android:name="com.lisaeva.silenttimer.START_SILENT_TIMER" />
 27-->C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:19:17-84
 27-->C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:19:25-82
@@ -49,35 +49,32 @@
 29                <action android:name="com.lisaeva.silenttimer.ACTIVATE_SILENT_TIMER" />
 29-->C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:21:17-88
 29-->C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:21:25-85
-30                <action android:name="com.lisaeva.silenttimer.DEACTIVATE_SILENT_TIMER" />
-30-->C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:22:17-90
-30-->C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:22:25-87
-31            </intent-filter>
-32        </receiver>
-33
-34        <activity android:name="com.lisaeva.silenttimer.ui.MainActivity" >
-34-->C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:26:9-31:20
-34-->C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:26:19-50
-35            <intent-filter>
-35-->C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:27:13-30:29
-36                <action android:name="android.intent.action.MAIN" />
-36-->C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:28:17-69
-36-->C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:28:25-66
-37
-38                <category android:name="android.intent.category.LAUNCHER" />
-38-->C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:29:17-77
-38-->C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:29:27-74
-39            </intent-filter>
-40        </activity>
-41
-42        <service
-42-->[androidx.room:room-runtime:2.2.6] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\20668fdc2da389abd6af51737aab327e\room-runtime-2.2.6\AndroidManifest.xml:25:9-28:40
-43            android:name="androidx.room.MultiInstanceInvalidationService"
-43-->[androidx.room:room-runtime:2.2.6] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\20668fdc2da389abd6af51737aab327e\room-runtime-2.2.6\AndroidManifest.xml:26:13-74
-44            android:directBootAware="true"
-44-->[androidx.room:room-runtime:2.2.6] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\20668fdc2da389abd6af51737aab327e\room-runtime-2.2.6\AndroidManifest.xml:27:13-43
-45            android:exported="false" />
-45-->[androidx.room:room-runtime:2.2.6] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\20668fdc2da389abd6af51737aab327e\room-runtime-2.2.6\AndroidManifest.xml:28:13-37
-46    </application>
-47
-48</manifest>
+30            </intent-filter>
+31        </receiver>
+32
+33        <activity android:name="com.lisaeva.silenttimer.ui.MainActivity" >
+33-->C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:25:9-30:20
+33-->C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:25:19-50
+34            <intent-filter>
+34-->C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:26:13-29:29
+35                <action android:name="android.intent.action.MAIN" />
+35-->C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:27:17-69
+35-->C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:27:25-66
+36
+37                <category android:name="android.intent.category.LAUNCHER" />
+37-->C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:28:17-77
+37-->C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:28:27-74
+38            </intent-filter>
+39        </activity>
+40
+41        <service
+41-->[androidx.room:room-runtime:2.2.6] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\20668fdc2da389abd6af51737aab327e\room-runtime-2.2.6\AndroidManifest.xml:25:9-28:40
+42            android:name="androidx.room.MultiInstanceInvalidationService"
+42-->[androidx.room:room-runtime:2.2.6] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\20668fdc2da389abd6af51737aab327e\room-runtime-2.2.6\AndroidManifest.xml:26:13-74
+43            android:directBootAware="true"
+43-->[androidx.room:room-runtime:2.2.6] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\20668fdc2da389abd6af51737aab327e\room-runtime-2.2.6\AndroidManifest.xml:27:13-43
+44            android:exported="false" />
+44-->[androidx.room:room-runtime:2.2.6] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\20668fdc2da389abd6af51737aab327e\room-runtime-2.2.6\AndroidManifest.xml:28:13-37
+45    </application>
+46
+47</manifest>

@@ -19,7 +19,6 @@
                 <action android:name="com.lisaeva.silenttimer.START_SILENT_TIMER"/>
                 <action android:name="com.lisaeva.silenttimer.STOP_SILENT_TIMER" />
                 <action android:name="com.lisaeva.silenttimer.ACTIVATE_SILENT_TIMER" />
-                <action android:name="com.lisaeva.silenttimer.DEACTIVATE_SILENT_TIMER" />
             </intent-filter>
         </receiver>
 

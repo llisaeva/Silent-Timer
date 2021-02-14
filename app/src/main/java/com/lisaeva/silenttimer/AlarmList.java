@@ -52,15 +52,18 @@ public class AlarmList {
     public SilentAlarm getTempAlarm() {
         return tempAlarm;
     }
+
+    public void setTempAlarm(SilentAlarm alarm) { tempAlarm.copyContent(alarm); }
+
     public void clearTempAlarm() {
         tempAlarm = new SilentAlarm();
     }
-    public void setTempAlarm(SilentAlarm alarm) { tempAlarm.copyContent(alarm); }
 
     public void add(SilentAlarm alarm) {
+        alarm.setActive(true);
         silentAlarmDao.insert(alarm);
-        Log.e("ALARM IN ALARMLIST", alarm.getTitle());
         alarms.add(alarm);
+
         Intent intent = new Intent(context, SilentAlarmInitiator.class);
         intent.setAction(SilentAlarmInitiator.ACTION_ACTIVATE);
         intent.replaceExtras(alarm.toBundle());
@@ -68,11 +71,16 @@ public class AlarmList {
     }
 
     public void update(SilentAlarm alarm) {
-        Intent toDelete = new Intent(context, SilentAlarmInitiator.class);
-        toDelete.setAction(SilentAlarmInitiator.ACTION_DEACTIVATE);
-        toDelete.replaceExtras(alarm.toBundle());
-        context.sendBroadcast(toDelete);
 
+        if (alarm.isActive()) {
+            Intent toDelete = new Intent(context, SilentAlarmInitiator.class);
+            toDelete.setAction(SilentAlarmInitiator.ACTION_TERMINATE);
+            toDelete.replaceExtras(alarm.toBundle());
+            context.sendBroadcast(toDelete);
+        }
+
+        alarm.setActive(true);
+        alarm.setStarted(false);
         alarm.copyContent(tempAlarm);
         silentAlarmDao.update(alarm);
 
@@ -85,18 +93,30 @@ public class AlarmList {
     public void remove(int index) {
         SilentAlarm alarm = alarms.get(index);
 
-        Intent toDelete = new Intent(context, SilentAlarmInitiator.class);
-        toDelete.setAction(SilentAlarmInitiator.ACTION_DEACTIVATE);
-        toDelete.replaceExtras(alarm.toBundle());
-        context.sendBroadcast(toDelete);
+        if (alarm.isActive()) {
+            Intent toDelete = new Intent(context, SilentAlarmInitiator.class);
+            toDelete.setAction(SilentAlarmInitiator.ACTION_TERMINATE);
+            toDelete.replaceExtras(alarm.toBundle());
+            context.sendBroadcast(toDelete);
+        }
 
         silentAlarmDao.delete(alarm);
         alarms.remove(index);
     }
 
-    // AlarmListFragment.AlarmAdapter --------------------------------------------------------------
     public SilentAlarm get(int index) {
         return alarms.get(index);
+    }
+
+    public SilentAlarm find(String uuid) {
+        for (SilentAlarm alarm : alarms)
+            if (alarm.getUuid().equals(uuid))
+                return alarm;
+        return null;
+    }
+
+    public int getPosition (SilentAlarm alarm) {
+        return alarms.indexOf(alarm);
     }
 
     public int size() {
@@ -104,8 +124,41 @@ public class AlarmList {
         return alarms.size();
     }
 
-    // AlarmListFragment.AlarmHolder ---------------------------------------------------------------
-    public int getPosition (SilentAlarm alarm) {
-        return alarms.indexOf(alarm);
+    public void saveHandle(String uuid, String uri) {
+        SilentAlarm alarm = find(uuid);
+        if (alarm != null) {
+            alarm.setHandle(uri);
+            silentAlarmDao.update(alarm);
+        }
     }
+
+    public String getHandleAndDeactivate(String uuid) {
+        SilentAlarm alarm = find(uuid);
+        String uri = null;
+        if (alarm != null) {
+            uri = alarm.getHandle();
+            alarm.setActive(false);
+            alarm.setStarted(false);
+            silentAlarmDao.update(alarm);
+        }
+        return uri;
+    }
+
+    public void deactivate(String uuid) {
+        SilentAlarm alarm = find(uuid);
+        if (alarm != null) {
+            alarm.setActive(false);
+            alarm.setStarted(false);
+            silentAlarmDao.update(alarm);
+        }
+    }
+
+    public void setStarted(String uuid, boolean flag) {
+        SilentAlarm alarm = find(uuid);
+        if (alarm != null) {
+            alarm.setStarted(flag);
+            silentAlarmDao.update(alarm);
+        }
+    }
+
 }

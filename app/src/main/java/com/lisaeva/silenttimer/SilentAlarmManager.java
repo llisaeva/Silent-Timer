@@ -52,6 +52,4 @@ public abstract class SilentAlarmManager {
         }
         return SUCCESS;
     }
-
-
 }

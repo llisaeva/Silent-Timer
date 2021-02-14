@@ -6,6 +6,8 @@ import com.lisaeva.silenttimer.SilentAlarmInitiator;
 import com.lisaeva.silenttimer.persistence.SilentAlarmData;
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeConstants;
+import org.joda.time.Duration;
+import org.joda.time.Interval;
 import org.joda.time.LocalTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
@@ -15,7 +17,6 @@ import java.util.UUID;
 
 public class SilentAlarm extends SilentAlarmData {
     public static final DateTimeFormatter formatter = DateTimeFormat.forPattern("HH:mm");
-
     private static final String DEFAULT_ALARM_TITLE = "Alarm";
 
     public SilentAlarm() {
@@ -28,7 +29,8 @@ public class SilentAlarm extends SilentAlarmData {
                 0,
                 0,
                 0,
-                0);
+                0,
+                null);
     }
 
     public SilentAlarm(SilentAlarmData data) {
@@ -41,12 +43,11 @@ public class SilentAlarm extends SilentAlarmData {
                 data.getRepeat(),
                 data.getShowDescription(),
                 data.getActive(),
-                data.getStarted());
+                data.getStarted(),
+                data.getHandle());
     }
 
-    public boolean getWeekday(Code code) {
-        return getWeekdays().charAt(code.index()) == Code.DAY_CHECKED.symbol();
-    }
+    // is() ----------------------------------------------------------------------------------------
 
     public boolean isRepeat() {
         return super.getRepeat() == 1 ? true : false;
@@ -62,6 +63,12 @@ public class SilentAlarm extends SilentAlarmData {
 
     public boolean isStarted() { return super.getStarted() == 1 ? true : false; }
 
+    // get() ---------------------------------------------------------------------------------------
+
+    public boolean getWeekday(Code code) {
+        return getWeekdays().charAt(code.index) == Code.DAY_CHECKED.symbol;
+    }
+
     public int getStartHour() {
         String startDate = super.getStartDate();
         LocalTime time;
@@ -72,6 +79,7 @@ public class SilentAlarm extends SilentAlarmData {
         }
         return time.getHourOfDay();
     }
+
     public int getStartMinute() {
         String startDate = super.getStartDate();
         LocalTime time;
@@ -82,6 +90,7 @@ public class SilentAlarm extends SilentAlarmData {
         }
         return time.getMinuteOfHour();
     }
+
     public int getEndHour() {
         String endDate = super.getEndDate();
         LocalTime time;
@@ -92,6 +101,7 @@ public class SilentAlarm extends SilentAlarmData {
         }
         return time.getHourOfDay();
     }
+
     public int getEndMinute() {
         String endDate = super.getEndDate();
         LocalTime time;
@@ -102,6 +112,105 @@ public class SilentAlarm extends SilentAlarmData {
         }
         return time.getMinuteOfHour();
     }
+
+    public String getDuration() {
+        String startTimeString = getStartDate();
+        String endTimeString = getEndDate();
+
+        if (startTimeString == null || endTimeString == null)return "";
+
+        DateTime startTime = DateTime.now().withFields(formatter.parseLocalTime(startTimeString));
+        DateTime endTime = DateTime.now().withFields(formatter.parseLocalTime(endTimeString));
+
+        if (startTime.isAfter(endTime)) {
+            endTime = endTime.plusHours(24);
+        }
+
+        Duration duration = new Interval(startTime, endTime).toDuration();
+
+        return duration.toStandardHours().getHours() + "h " + duration.toStandardMinutes().getMinutes() + "min";
+    }
+
+    public String getListItemDisplayDate() {
+        String weekdays = getWeekdays();
+        StringBuilder sb = new StringBuilder();
+        sb.append(getStartDate() + "-" + getEndDate());
+
+        if (isRepeat()) {
+            sb.append(" (");
+            if(getWeekdays().equals(Code.DAILY.toString())) {
+                sb.append("daily)");
+                return sb.toString();
+            }
+
+            Code[] days = { Code.SUNDAY, Code.MONDAY, Code.TUESDAY, Code.WEDNESDAY, Code.THURSDAY, Code.FRIDAY, Code.SATURDAY };
+
+            String space = "";
+            int j;
+            char check = Code.DAY_CHECKED.symbol;
+
+            for (int i = 0; i<7; i++) {
+                if (weekdays.charAt(i) == check) {
+                    for (j = i+1; j<7 && weekdays.charAt(j) == check; j++)continue;
+                    j--;
+                    if (i+1 == j) {
+                        sb.append(space + days[i] + ", " + days[j]);
+                    } else if (i<j) {
+                        sb.append (space + days[i] + "-" + days[j]);
+                    } else {
+                        sb.append(space + days[i]);
+                    }
+                    i=j+1;
+                    space = ", ";
+                }
+            }
+            sb.append(")");
+        }
+        return sb.toString();
+    }
+
+    // set() ---------------------------------------------------------------------------------------
+
+    public void setStartDate(int hour, int min) {
+        LocalTime time = new LocalTime(hour, min);
+        super.setStartDate(formatter.print(time));
+    }
+
+    public void setEndDate(int hour, int min) {
+        LocalTime time = new LocalTime(hour, min);
+        super.setEndDate(formatter.print(time));
+    }
+
+    public void setRepeat(boolean flag) {
+        int n = flag ? 1 : 0;
+        super.setRepeat(n);
+    }
+
+    public void setShowDescription(boolean flag) {
+        int n = flag ? 1 : 0;
+        super.setShowDescription(n);
+    }
+
+    public void setWeekday(Code code, boolean flag) {
+
+        StringBuilder weekdays = new StringBuilder(getWeekdays());
+        int index = code.index;
+        String symbol = flag? Code.DAY_CHECKED.toString() : Code.DAY_UNCHECKED.toString();
+
+        setWeekdays(weekdays.replace(index, index+1, symbol).toString());
+    }
+
+    public void setActive(boolean flag) {
+        int n = flag ? 1 : 0;
+        super.setActive(n);
+    }
+
+    public void setStarted(boolean flag) {
+        int n = flag ? 1 : 0;
+        super.setStarted(n);
+    }
+
+    // ---------------------------------------------------------------------------------------------
 
     public Bundle toBundle() {
         String startTime = getStartDate();
@@ -126,8 +235,6 @@ public class SilentAlarm extends SilentAlarmData {
         Bundle bundle = new Bundle();
         bundle.putString(SilentAlarmInitiator.EXTRA_UUID, getUuid());
         bundle.putBoolean(SilentAlarmInitiator.EXTRA_REPEAT, isRepeat());
-        bundle.putBoolean(SilentAlarmInitiator.EXTRA_ACTIVATE, isActive());
-        bundle.putBoolean(SilentAlarmInitiator.EXTRA_STARTED, isStarted());
         DateTimeFormatter extraFormatter = SilentAlarmInitiator.formatter;
 
         if (isRepeat()) {
@@ -148,89 +255,6 @@ public class SilentAlarm extends SilentAlarmData {
         }
 
         return bundle;
-    }
-
-    public String getDuration() {
-//        String startString = alarm.getStartDate();
-//        String endString = alarm.getEndDate();
-//        if (startString != null && endString != null) {
-//            int startTimeMinutes = getMinutes(startString);
-//            int endTimeMinutes = getMinutes(endString);
-//
-//            if (endTimeMinutes <= startTimeMinutes) {
-//                endTimeMinutes += MINUTES_IN_DAY;
-//            }
-//
-//            int hour = (endTimeMinutes-startTimeMinutes) / 60;
-//            int min = (endTimeMinutes-startTimeMinutes) % 60;
-//            return hour + "h " + min + "min";
-//        }
-        return "";
-    }
-
-    public String getListItemDisplayDate() {
-        String weekdays = getWeekdays();
-        StringBuilder sb = new StringBuilder();
-        sb.append(getStartDate() + "-" + getEndDate());
-
-        if (isRepeat()) {
-            sb.append(" (");
-            if(getWeekdays().equals(Code.DAILY.toString())) {
-                sb.append("daily)");
-                return sb.toString();
-            }
-
-            Code[] days = { Code.SUNDAY, Code.MONDAY, Code.TUESDAY, Code.WEDNESDAY, Code.THURSDAY, Code.FRIDAY, Code.SATURDAY };
-
-            String space = "";
-            int j;
-            char check = Code.DAY_CHECKED.symbol();
-
-            for (int i = 0; i<7; i++) {
-                if (weekdays.charAt(i) == check) {
-                    for (j = i+1; j<7 && weekdays.charAt(j) == check; j++)continue;
-                    j--;
-                    if (i+1 == j) {
-                        sb.append(space + days[i] + ", " + days[j]);
-                    } else if (i<j) {
-                        sb.append (space + days[i] + "-" + days[j]);
-                    } else {
-                        sb.append(space + days[i]);
-                    }
-                    i=j+1;
-                    space = ", ";
-                }
-            }
-            sb.append(")");
-        }
-        return sb.toString();
-    }
-
-    public void setStartDate(int hour, int min) {
-        LocalTime time = new LocalTime(hour, min);
-        super.setStartDate(formatter.print(time));
-    }
-    public void setEndDate(int hour, int min) {
-        LocalTime time = new LocalTime(hour, min);
-        super.setEndDate(formatter.print(time));
-    }
-
-    public void setRepeat(boolean flag) {
-        int n = flag ? 1 : 0;
-        super.setRepeat(n);
-    }
-
-    public void setShowDescription(boolean flag) {
-        int n = flag ? 1 : 0;
-        super.setRepeat(n);
-    }
-
-    public void setWeekday(Code code, boolean flag) {
-        Log.d("XXXXXXX", "HERE-HERE");
-        StringBuilder weekdays = new StringBuilder(getWeekdays());
-        int index = code.index();
-        String symbol = flag? Code.DAY_CHECKED.toString() : Code.DAY_UNCHECKED.toString();
-        weekdays.replace(index, index+1, symbol);
     }
 
     public void copyContent(SilentAlarm copyFrom) {
@@ -258,7 +282,8 @@ public class SilentAlarm extends SilentAlarmData {
         return false;
     }
 
-    // ------------------------------------
+    // ---------------------------------------------------------------------------------------------
+
     public enum Code {
         SUNDAY(0, "Sun", 'S', DateTimeConstants.SUNDAY),
         MONDAY(1, "Mon", 'M', DateTimeConstants.MONDAY),
@@ -287,21 +312,15 @@ public class SilentAlarm extends SilentAlarmData {
             this.jodaTimeConstant = jodaTimeConstant;
         }
 
-        public int index() { return index; }
-
         @Override
         public String toString() { return name; }
-
-        public char symbol() { return symbol; }
-
-        public int jodaTimeConstant() { return jodaTimeConstant; }
 
         public static List<Code> parseWeekString(String weekcode) {
             List<Code> list = new ArrayList<>();
             if(weekcode.equals(NEVER))return null;
 
             for (int i = 0; i<weekcode.length(); i++) {
-                if (weekcode.charAt(i) == DAY_CHECKED.symbol()) {
+                if (weekcode.charAt(i) == DAY_CHECKED.symbol) {
                     if (i == SUNDAY.index)list.add(SUNDAY);
                     else if (i == MONDAY.index)list.add(MONDAY);
                     else if (i == TUESDAY.index)list.add(TUESDAY);

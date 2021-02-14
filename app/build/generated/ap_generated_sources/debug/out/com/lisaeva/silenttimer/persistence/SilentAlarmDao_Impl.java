@@ -29,7 +29,7 @@ public final class SilentAlarmDao_Impl implements SilentAlarmDao {
     this.__insertionAdapterOfSilentAlarmData = new EntityInsertionAdapter<SilentAlarmData>(__db) {
       @Override
       public String createQuery() {
-        return "INSERT OR REPLACE INTO `silent_alarms` (`id`,`title`,`description`,`start_date`,`end_date`,`weekdays`,`repeat`,`show_description`,`active`,`started`) VALUES (?,?,?,?,?,?,?,?,?,?)";
+        return "INSERT OR REPLACE INTO `silent_alarms` (`id`,`title`,`description`,`start_date`,`end_date`,`weekdays`,`repeat`,`show_description`,`active`,`started`,`handle`) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
       }
 
       @Override
@@ -68,6 +68,11 @@ public final class SilentAlarmDao_Impl implements SilentAlarmDao {
         stmt.bindLong(8, value.getShowDescription());
         stmt.bindLong(9, value.getActive());
         stmt.bindLong(10, value.getStarted());
+        if (value.getHandle() == null) {
+          stmt.bindNull(11);
+        } else {
+          stmt.bindString(11, value.getHandle());
+        }
       }
     };
     this.__deletionAdapterOfSilentAlarmData = new EntityDeletionOrUpdateAdapter<SilentAlarmData>(__db) {
@@ -88,7 +93,7 @@ public final class SilentAlarmDao_Impl implements SilentAlarmDao {
     this.__updateAdapterOfSilentAlarmData = new EntityDeletionOrUpdateAdapter<SilentAlarmData>(__db) {
       @Override
       public String createQuery() {
-        return "UPDATE OR ABORT `silent_alarms` SET `id` = ?,`title` = ?,`description` = ?,`start_date` = ?,`end_date` = ?,`weekdays` = ?,`repeat` = ?,`show_description` = ?,`active` = ?,`started` = ? WHERE `id` = ?";
+        return "UPDATE OR ABORT `silent_alarms` SET `id` = ?,`title` = ?,`description` = ?,`start_date` = ?,`end_date` = ?,`weekdays` = ?,`repeat` = ?,`show_description` = ?,`active` = ?,`started` = ?,`handle` = ? WHERE `id` = ?";
       }
 
       @Override
@@ -127,10 +132,15 @@ public final class SilentAlarmDao_Impl implements SilentAlarmDao {
         stmt.bindLong(8, value.getShowDescription());
         stmt.bindLong(9, value.getActive());
         stmt.bindLong(10, value.getStarted());
-        if (value.getUuid() == null) {
+        if (value.getHandle() == null) {
           stmt.bindNull(11);
         } else {
-          stmt.bindString(11, value.getUuid());
+          stmt.bindString(11, value.getHandle());
+        }
+        if (value.getUuid() == null) {
+          stmt.bindNull(12);
+        } else {
+          stmt.bindString(12, value.getUuid());
         }
       }
     };
@@ -189,6 +199,7 @@ public final class SilentAlarmDao_Impl implements SilentAlarmDao {
       final int _cursorIndexOfShowDescription = CursorUtil.getColumnIndexOrThrow(_cursor, "show_description");
       final int _cursorIndexOfActive = CursorUtil.getColumnIndexOrThrow(_cursor, "active");
       final int _cursorIndexOfStarted = CursorUtil.getColumnIndexOrThrow(_cursor, "started");
+      final int _cursorIndexOfHandle = CursorUtil.getColumnIndexOrThrow(_cursor, "handle");
       final List<SilentAlarmData> _result = new ArrayList<SilentAlarmData>(_cursor.getCount());
       while(_cursor.moveToNext()) {
         final SilentAlarmData _item;
@@ -212,7 +223,9 @@ public final class SilentAlarmDao_Impl implements SilentAlarmDao {
         _tmpActive = _cursor.getInt(_cursorIndexOfActive);
         final int _tmpStarted;
         _tmpStarted = _cursor.getInt(_cursorIndexOfStarted);
-        _item = new SilentAlarmData(_tmpUuid,_tmpTitle,_tmpDescription,_tmpStartDate,_tmpEndDate,_tmpWeekdays,_tmpRepeat,_tmpShowDescription,_tmpActive,_tmpStarted);
+        final String _tmpHandle;
+        _tmpHandle = _cursor.getString(_cursorIndexOfHandle);
+        _item = new SilentAlarmData(_tmpUuid,_tmpTitle,_tmpDescription,_tmpStartDate,_tmpEndDate,_tmpWeekdays,_tmpRepeat,_tmpShowDescription,_tmpActive,_tmpStarted,_tmpHandle);
         _result.add(_item);
       }
       return _result;
@@ -245,6 +258,7 @@ public final class SilentAlarmDao_Impl implements SilentAlarmDao {
       final int _cursorIndexOfShowDescription = CursorUtil.getColumnIndexOrThrow(_cursor, "show_description");
       final int _cursorIndexOfActive = CursorUtil.getColumnIndexOrThrow(_cursor, "active");
       final int _cursorIndexOfStarted = CursorUtil.getColumnIndexOrThrow(_cursor, "started");
+      final int _cursorIndexOfHandle = CursorUtil.getColumnIndexOrThrow(_cursor, "handle");
       final SilentAlarmData _result;
       if(_cursor.moveToFirst()) {
         final String _tmpUuid;
@@ -267,7 +281,9 @@ public final class SilentAlarmDao_Impl implements SilentAlarmDao {
         _tmpActive = _cursor.getInt(_cursorIndexOfActive);
         final int _tmpStarted;
         _tmpStarted = _cursor.getInt(_cursorIndexOfStarted);
-        _result = new SilentAlarmData(_tmpUuid,_tmpTitle,_tmpDescription,_tmpStartDate,_tmpEndDate,_tmpWeekdays,_tmpRepeat,_tmpShowDescription,_tmpActive,_tmpStarted);
+        final String _tmpHandle;
+        _tmpHandle = _cursor.getString(_cursorIndexOfHandle);
+        _result = new SilentAlarmData(_tmpUuid,_tmpTitle,_tmpDescription,_tmpStartDate,_tmpEndDate,_tmpWeekdays,_tmpRepeat,_tmpShowDescription,_tmpActive,_tmpStarted,_tmpHandle);
       } else {
         _result = null;
       }
