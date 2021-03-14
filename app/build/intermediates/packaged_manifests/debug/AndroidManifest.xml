@@ -19,9 +19,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:testOnly="true"
-        android:theme="@style/Theme.SilentTimer" >
+        android:theme="@style/Theme.AppCompat" >
+        <uses-library
+            android:name="androidx.test.app"
+            android:required="false" />
+
+        <receiver android:name="com.lisaeva.silenttimer.BootEventReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_SHUTDOWN" />
+            </intent-filter>
+        </receiver>
         <receiver
-            android:name="com.lisaeva.silenttimer.SilentAlarmInitiator"
+            android:name="com.lisaeva.silenttimer.SilentIntervalInitiator"
             android:exported="true" >
             <intent-filter>
                 <action android:name="com.lisaeva.silenttimer.START_SILENT_TIMER" />

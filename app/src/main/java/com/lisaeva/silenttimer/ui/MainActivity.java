@@ -1,5 +1,6 @@
 package com.lisaeva.silenttimer.ui;
 
+import android.app.AlertDialog;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
@@ -8,12 +9,12 @@ import android.os.Build;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
-import com.lisaeva.silenttimer.ActivityCallback;
-import com.lisaeva.silenttimer.AlarmList;
 import com.lisaeva.silenttimer.R;
+import com.lisaeva.silenttimer.SilentIntervalInitiator;
 
 public class MainActivity extends AppCompatActivity implements ActivityCallback {
     private FragmentManager fragmentManager;
+    private static SharedPreferences sharedPreferences;
     private int layoutContainer = R.id.fragment_container;
 
     public MainActivity() {
@@ -23,48 +24,57 @@ public class MainActivity extends AppCompatActivity implements ActivityCallback 
     @Override
     public void onCreate(Bundle savedInstance) {
         super.onCreate(savedInstance);
-
-        // -------------------------------------------
-        NotificationManager notificationManager =
-                (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
-                && !notificationManager.isNotificationPolicyAccessGranted()) {
-
-            Intent intent = new Intent(
-                    android.provider.Settings
-                            .ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS);
-
-            startActivity(intent);
-        }
-        // ----------------------------------------
-
+        sharedPreferences = getApplicationContext().getSharedPreferences(SilentIntervalInitiator.PREFERENCES_SAVED_HANDLES_KEY, Context.MODE_PRIVATE);
         fragmentManager = getSupportFragmentManager();
-        AlarmList list = AlarmList.get(getApplicationContext());
 
         if (savedInstance == null) {
             fragmentManager.beginTransaction()
                     .setReorderingAllowed(true)
-                    .add(layoutContainer, AlarmListFragment.class, null)
+                    .add(layoutContainer, SilentIntervalListFragment.class, null)
                     .commit();
         }
     }
 
+    public static SharedPreferences getSharedPreferences() {
+        return sharedPreferences;
+    }
+
     @Override
-    public void callback(CallbackReason reason, Bundle bundle) {
-        switch(reason) {
-            case OPEN_ALARM_FRAGMENT:
-                fragmentManager.beginTransaction()
-                        .setReorderingAllowed(true)
-                        .replace(layoutContainer, AlarmFragment.class, bundle)
-                        .addToBackStack(null)
-                        .commit();
-                break;
-            case OPEN_ALARM_LIST_FRAGMENT:
-                fragmentManager.popBackStack();
-                break;
-            default:
-                break;
-        }
+    public void openSilentIntervalFragment() {
+        fragmentManager.beginTransaction()
+                .setReorderingAllowed(true)
+                .replace(layoutContainer, SilentIntervalFragment.class, null)
+                .addToBackStack(null)
+                .commit();
+    }
+
+    @Override
+    public void openSilentIntervalListFragment() {
+        fragmentManager.popBackStack();
+    }
+
+    @Override
+    public void requestPermissions() {
+        NotificationManager mNotificationManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
+        AlertDialog dialog = new AlertDialog.Builder(this)
+                .setTitle(R.string.permission_request_title)
+                .setMessage(R.string.permission_request_message)
+                .setNegativeButton(R.string.permission_request_deny, (alert, which) -> {
+                    alert.dismiss();
+                })
+                .setPositiveButton(R.string.permission_request_grant, (alert, which) -> {
+                    Intent intent = new Intent(android.provider.Settings.ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS);
+                    startActivity(intent);
+                    alert.dismiss();
+                }).create();
+        dialog.show();
+    }
+
+    @Override
+    public boolean checkPermissions(){
+        NotificationManager notificationManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !notificationManager.isNotificationPolicyAccessGranted()) {
+            return false;
+        } return true;
     }
 }

@@ -6,8 +6,8 @@ import android.view.View;
 import androidx.databinding.DataBinderMapper;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
-import com.lisaeva.silenttimer.databinding.FragmentAlarmBindingImpl;
-import com.lisaeva.silenttimer.databinding.ListItemAlarmBindingImpl;
+import com.lisaeva.silenttimer.databinding.FragmentSilentIntervalBindingImpl;
+import com.lisaeva.silenttimer.databinding.ListItemSilentIntervalBindingImpl;
 import java.lang.IllegalArgumentException;
 import java.lang.Integer;
 import java.lang.Object;
@@ -19,15 +19,15 @@ import java.util.HashMap;
 import java.util.List;
 
 public class DataBinderMapperImpl extends DataBinderMapper {
-  private static final int LAYOUT_FRAGMENTALARM = 1;
+  private static final int LAYOUT_FRAGMENTSILENTINTERVAL = 1;
 
-  private static final int LAYOUT_LISTITEMALARM = 2;
+  private static final int LAYOUT_LISTITEMSILENTINTERVAL = 2;
 
   private static final SparseIntArray INTERNAL_LAYOUT_ID_LOOKUP = new SparseIntArray(2);
 
   static {
-    INTERNAL_LAYOUT_ID_LOOKUP.put(com.lisaeva.silenttimer.R.layout.fragment_alarm, LAYOUT_FRAGMENTALARM);
-    INTERNAL_LAYOUT_ID_LOOKUP.put(com.lisaeva.silenttimer.R.layout.list_item_alarm, LAYOUT_LISTITEMALARM);
+    INTERNAL_LAYOUT_ID_LOOKUP.put(com.lisaeva.silenttimer.R.layout.fragment_silent_interval, LAYOUT_FRAGMENTSILENTINTERVAL);
+    INTERNAL_LAYOUT_ID_LOOKUP.put(com.lisaeva.silenttimer.R.layout.list_item_silent_interval, LAYOUT_LISTITEMSILENTINTERVAL);
   }
 
   @Override
@@ -39,17 +39,17 @@ public class DataBinderMapperImpl extends DataBinderMapper {
         throw new RuntimeException("view must have a tag");
       }
       switch(localizedLayoutId) {
-        case  LAYOUT_FRAGMENTALARM: {
-          if ("layout/fragment_alarm_0".equals(tag)) {
-            return new FragmentAlarmBindingImpl(component, view);
+        case  LAYOUT_FRAGMENTSILENTINTERVAL: {
+          if ("layout/fragment_silent_interval_0".equals(tag)) {
+            return new FragmentSilentIntervalBindingImpl(component, view);
           }
-          throw new IllegalArgumentException("The tag for fragment_alarm is invalid. Received: " + tag);
+          throw new IllegalArgumentException("The tag for fragment_silent_interval is invalid. Received: " + tag);
         }
-        case  LAYOUT_LISTITEMALARM: {
-          if ("layout/list_item_alarm_0".equals(tag)) {
-            return new ListItemAlarmBindingImpl(component, view);
+        case  LAYOUT_LISTITEMSILENTINTERVAL: {
+          if ("layout/list_item_silent_interval_0".equals(tag)) {
+            return new ListItemSilentIntervalBindingImpl(component, view);
           }
-          throw new IllegalArgumentException("The tag for list_item_alarm is invalid. Received: " + tag);
+          throw new IllegalArgumentException("The tag for list_item_silent_interval is invalid. Received: " + tag);
         }
       }
     }
@@ -96,27 +96,28 @@ public class DataBinderMapperImpl extends DataBinderMapper {
   }
 
   private static class InnerBrLookup {
-    static final SparseArray<String> sKeys = new SparseArray<String>(18);
+    static final SparseArray<String> sKeys = new SparseArray<String>(19);
 
     static {
       sKeys.put(0, "_all");
-      sKeys.put(1, "description");
-      sKeys.put(2, "duration");
-      sKeys.put(3, "endDate");
-      sKeys.put(4, "friday");
-      sKeys.put(5, "handler");
-      sKeys.put(6, "listItemDisplayDate");
-      sKeys.put(7, "monday");
-      sKeys.put(8, "repeat");
-      sKeys.put(9, "saturday");
-      sKeys.put(10, "showDescription");
-      sKeys.put(11, "startDate");
-      sKeys.put(12, "sunday");
-      sKeys.put(13, "thursday");
-      sKeys.put(14, "title");
-      sKeys.put(15, "tuesday");
-      sKeys.put(16, "viewModel");
-      sKeys.put(17, "wednesday");
+      sKeys.put(1, "active");
+      sKeys.put(2, "description");
+      sKeys.put(3, "duration");
+      sKeys.put(4, "endDate");
+      sKeys.put(5, "friday");
+      sKeys.put(6, "handler");
+      sKeys.put(7, "listItemDisplayDate");
+      sKeys.put(8, "monday");
+      sKeys.put(9, "repeat");
+      sKeys.put(10, "saturday");
+      sKeys.put(11, "showDescription");
+      sKeys.put(12, "startDate");
+      sKeys.put(13, "sunday");
+      sKeys.put(14, "thursday");
+      sKeys.put(15, "title");
+      sKeys.put(16, "tuesday");
+      sKeys.put(17, "viewModel");
+      sKeys.put(18, "wednesday");
     }
   }
 
@@ -124,8 +125,8 @@ public class DataBinderMapperImpl extends DataBinderMapper {
     static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(2);
 
     static {
-      sKeys.put("layout/fragment_alarm_0", com.lisaeva.silenttimer.R.layout.fragment_alarm);
-      sKeys.put("layout/list_item_alarm_0", com.lisaeva.silenttimer.R.layout.list_item_alarm);
+      sKeys.put("layout/fragment_silent_interval_0", com.lisaeva.silenttimer.R.layout.fragment_silent_interval);
+      sKeys.put("layout/list_item_silent_interval_0", com.lisaeva.silenttimer.R.layout.list_item_silent_interval);
     }
   }
 }

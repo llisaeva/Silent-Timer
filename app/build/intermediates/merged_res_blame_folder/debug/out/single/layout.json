@@ -1,10 +1,10 @@
 [
     {
-        "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_alarm.xml",
-        "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\src\\main\\res\\layout\\fragment_alarm.xml"
+        "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\list_item_silent_interval.xml",
+        "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\src\\main\\res\\layout\\list_item_silent_interval.xml"
     },
     {
-        "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\list_item_alarm.xml",
-        "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\src\\main\\res\\layout\\list_item_alarm.xml"
+        "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_silent_interval.xml",
+        "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\src\\main\\res\\layout\\fragment_silent_interval.xml"
     }
 ]

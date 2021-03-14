@@ -8,16 +8,24 @@
         "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
     {
-        "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_alarm.xml.flat",
-        "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\src\\main\\res\\layout\\fragment_alarm.xml"
-    },
-    {
         "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
         "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\src\\main\\res\\layout\\activity_main.xml"
     },
     {
+        "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\menu_fragment_silent_interval_list.xml.flat",
+        "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\src\\main\\res\\menu\\fragment_silent_interval_list.xml"
+    },
+    {
         "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_action_delete_silent_alarm.xml.flat",
         "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\action_delete_silent_alarm.xml"
+    },
+    {
+        "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\menu_fragment_silent_interval.xml.flat",
+        "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\src\\main\\res\\menu\\fragment_silent_interval.xml"
+    },
+    {
+        "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_silent_interval_list.xml.flat",
+        "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\src\\main\\res\\layout\\fragment_silent_interval_list.xml"
     },
     {
         "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_launcher_background.png.flat",
@@ -30,6 +38,10 @@
     {
         "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_arrow.png.flat",
+        "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\arrow.png"
     },
     {
         "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_action_delete_silent_alarm.png.flat",
@@ -68,12 +80,24 @@
         "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\src\\main\\res\\drawable-mdpi\\action_save_silent_alarm.png"
     },
     {
+        "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_arrow.png.flat",
+        "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\src\\main\\res\\drawable-xhdpi\\arrow.png"
+    },
+    {
+        "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_arrow.png.flat",
+        "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\src\\main\\res\\drawable-xxhdpi\\arrow.png"
+    },
+    {
         "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
     },
     {
         "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_arrow.png.flat",
+        "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\arrow.png"
     },
     {
         "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
@@ -88,8 +112,12 @@
         "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_launcher_background.png"
     },
     {
-        "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_alarm_list.xml.flat",
-        "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\src\\main\\res\\layout\\fragment_alarm_list.xml"
+        "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_arrow.png.flat",
+        "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\src\\main\\res\\drawable-mdpi\\arrow.png"
+    },
+    {
+        "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_arrow.png.flat",
+        "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\src\\main\\res\\drawable-hdpi\\arrow.png"
     },
     {
         "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
@@ -106,6 +134,10 @@
     {
         "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
         "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_silent_interval.xml.flat",
+        "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\src\\main\\res\\layout\\fragment_silent_interval.xml"
     },
     {
         "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_action_add_silent_alarm.png.flat",
@@ -128,6 +160,10 @@
         "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
     },
     {
+        "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_arrow.xml.flat",
+        "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\arrow.xml"
+    },
+    {
         "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_action_add_silent_alarm.xml.flat",
         "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\action_add_silent_alarm.xml"
     },
@@ -136,16 +172,8 @@
         "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\src\\main\\res\\drawable-mdpi\\action_delete_silent_alarm.png"
     },
     {
-        "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\menu_fragment_alarm.xml.flat",
-        "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\src\\main\\res\\menu\\fragment_alarm.xml"
-    },
-    {
         "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_launcher_background.xml.flat",
         "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_launcher_background.xml"
-    },
-    {
-        "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\layout_list_item_alarm.xml.flat",
-        "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\src\\main\\res\\layout\\list_item_alarm.xml"
     },
     {
         "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_action_save_silent_alarm.png.flat",
@@ -176,12 +204,12 @@
         "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_action_delete_silent_alarm.png.flat",
-        "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\src\\main\\res\\drawable-hdpi\\action_delete_silent_alarm.png"
+        "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\layout_list_item_silent_interval.xml.flat",
+        "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\src\\main\\res\\layout\\list_item_silent_interval.xml"
     },
     {
-        "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\menu_fragment_alarm_list.xml.flat",
-        "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\src\\main\\res\\menu\\fragment_alarm_list.xml"
+        "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_action_delete_silent_alarm.png.flat",
+        "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\src\\main\\res\\drawable-hdpi\\action_delete_silent_alarm.png"
     },
     {
         "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_action_delete_silent_alarm.png.flat",

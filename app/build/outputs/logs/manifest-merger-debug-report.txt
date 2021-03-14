@@ -1,20 +1,20 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:2:1-34:12
-INJECTED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:2:1-34:12
-INJECTED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:2:1-34:12
-INJECTED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:2:1-34:12
+ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:2:1-38:12
+INJECTED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:2:1-38:12
+INJECTED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:2:1-38:12
+INJECTED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:2:1-38:12
 MERGED from [androidx.databinding:databinding-adapters:4.1.2] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\d71154eb53e02a63e9d257744621dbab\databinding-adapters-4.1.2\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.databinding:databinding-runtime:4.1.2] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\b78ca28a8f1e1c51d7f2b154453e445d\databinding-runtime-4.1.2\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.material:material:1.2.1] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\95fea1abc6992a5307b25fe35fac1247\material-1.2.1\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\5842209fb9f5a48b90a2c69659706a2c\constraintlayout-2.0.4\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\c0b2b962c5103dfd397c1f93f1b5ff3e\appcompat-1.2.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\f3a14ddcb087dcf8a0d24b6ec32c1e48\jetified-viewpager2-1.0.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.fragment:fragment:1.2.5] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\bd9e62d044bc3931f0abbe5c761a6b55\fragment-1.2.5\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.fragment:fragment:1.3.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\b745e6b079c3700d3177b12916aa942a\fragment-1.3.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.room:room-runtime:2.2.6] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\20668fdc2da389abd6af51737aab327e\room-runtime-2.2.6\AndroidManifest.xml:17:1-31:12
+MERGED from [androidx.activity:activity:1.2.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\f0b9ca18a95f58f670c293a2d05a3741\jetified-activity-1.2.0\AndroidManifest.xml:17:1-24:12
 MERGED from [io.reactivex.rxjava3:rxandroid:3.0.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\b58c6cf3082ba1355343b6dce0516e7a\jetified-rxandroid-3.0.0\AndroidManifest.xml:15:1-20:12
 MERGED from [androidx.databinding:viewbinding:4.1.2] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\4c13d31e1578558fc72b1a8fde2616f5\jetified-viewbinding-4.1.2\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.activity:activity:1.1.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\e78421e67f3dd0a336b580eb41f2dbe8\jetified-activity-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\a18f2ac95eb74ed60dc65497a0d69b90\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\3e72c4161a51179e0995e99ce0a6d14a\loader-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.appcompat:appcompat-resources:1.2.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\78528673711fb866c81698a0ee4ac435\jetified-appcompat-resources-1.2.0\AndroidManifest.xml:17:1-24:12
@@ -26,34 +26,35 @@ MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\lisli\.gradl
 MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\04ef8fa3b3d13566979b7b592fa3b992\recyclerview-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.customview:customview:1.0.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\3726010a38e5d564d8210b21439814fb\customview-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.core:core:1.3.1] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\209a7836b2a5d1638319d9c2e2588708\core-1.3.1\AndroidManifest.xml:17:1-26:12
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\737da3eaa36e12e9bedb2bb2b68622bd\lifecycle-runtime-2.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\2ff920e9eb6aca8fbad197077b193730\lifecycle-runtime-2.3.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\4430fe2c0df4b871691b97993ed49487\versionedparcelable-1.1.0\AndroidManifest.xml:17:1-27:12
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\9d135c59bdbd692ac098c691f9c99183\jetified-lifecycle-viewmodel-savedstate-2.2.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\b7007eccff1d8031366c9c1baa7d0145\lifecycle-viewmodel-2.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\5925432da29c8cd30b1779d30c284472\jetified-lifecycle-viewmodel-savedstate-2.3.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\75a36a0e31114870c1eaa260c25cb5ec\lifecycle-viewmodel-2.3.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.savedstate:savedstate:1.1.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\0b61786afe4f7244cbb933941db53f53\jetified-savedstate-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\2c688a320005d69ea4cb0e34449a8e7f\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\b42ca945bdae92829348e74e701823c3\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.sqlite:sqlite-framework:2.0.1] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\718519aad151e7df3a0ea4470d7ad7a4\sqlite-framework-2.0.1\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.sqlite:sqlite:2.0.1] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\8d7e3967c3337a297ca5504c15582e26\sqlite-2.0.1\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\76c2b61a5303f4bf13213956e62e9bbe\jetified-savedstate-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\5cf3b83dab8be1ffa1444e04a958d54b\jetified-tracing-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\de50545ead4df76cfcf81499e3581a07\lifecycle-livedata-2.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\85eaf0fd4d92c264273bd37b9a074d7e\lifecycle-livedata-core-2.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\b3bf9bb968cd6cf575093d13bb67c731\lifecycle-livedata-core-2.3.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\4bcb2df84b64047b1f70d087d97acaac\core-runtime-2.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\42da6144e2ae8c5301332bc76f990b08\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\e116204df91b04b819eac48184c022af\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:17:1-24:12
-INJECTED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:2:1-34:12
-INJECTED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:2:1-34:12
-INJECTED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:2:1-34:12
+INJECTED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:2:1-38:12
+INJECTED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:2:1-38:12
+INJECTED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:2:1-38:12
 	package
 		ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:3:5-38
 		INJECTED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:2:1-34:12
+		ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:2:1-38:12
 		INJECTED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:2:1-34:12
+		ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:2:1-38:12
 		INJECTED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:2:11-69
@@ -62,7 +63,7 @@ ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\A
 	android:name
 		ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:5:22-82
 application
-ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:7:5-32:19
+ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:7:5-37:19
 MERGED from [com.google.android.material:material:1.2.1] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\95fea1abc6992a5307b25fe35fac1247\material-1.2.1\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.2.1] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\95fea1abc6992a5307b25fe35fac1247\material-1.2.1\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\5842209fb9f5a48b90a2c69659706a2c\constraintlayout-2.0.4\AndroidManifest.xml:9:5-20
@@ -86,41 +87,57 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\li
 	android:allowBackup
 		ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:8:9-35
 	android:theme
-		ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:13:9-49
-receiver#com.lisaeva.silenttimer.SilentAlarmInitiator
-ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:17:9-23:20
+		ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:13:9-47
+uses-library#androidx.test.app
+ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:14:9-83
+	android:required
+		ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:14:56-80
+	android:name
+		ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:14:23-55
+receiver#com.lisaeva.silenttimer.BootEventReceiver
+ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:16:9-20:20
+	android:name
+		ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:16:19-52
+intent-filter#action:name:android.intent.action.ACTION_SHUTDOWN
+ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:17:13-19:29
+action#android.intent.action.ACTION_SHUTDOWN
+ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:18:17-80
+	android:name
+		ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:18:25-77
+receiver#com.lisaeva.silenttimer.SilentIntervalInitiator
+ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:22:9-28:20
 	android:exported
-		ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:17:56-79
+		ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:22:60-83
 	android:name
-		ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:17:19-54
+		ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:22:19-58
 intent-filter#action:name:com.lisaeva.silenttimer.ACTIVATE_SILENT_TIMER+action:name:com.lisaeva.silenttimer.START_SILENT_TIMER+action:name:com.lisaeva.silenttimer.STOP_SILENT_TIMER
-ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:18:13-22:29
+ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:23:13-27:29
 action#com.lisaeva.silenttimer.START_SILENT_TIMER
-ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:19:17-84
+ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:24:17-84
 	android:name
-		ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:19:25-82
+		ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:24:25-82
 action#com.lisaeva.silenttimer.STOP_SILENT_TIMER
-ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:20:17-84
+ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:25:17-84
 	android:name
-		ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:20:25-81
+		ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:25:25-81
 action#com.lisaeva.silenttimer.ACTIVATE_SILENT_TIMER
-ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:21:17-88
+ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:26:17-88
 	android:name
-		ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:21:25-85
+		ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:26:25-85
 activity#com.lisaeva.silenttimer.ui.MainActivity
-ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:25:9-30:20
+ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:30:9-35:20
 	android:name
-		ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:25:19-50
+		ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:30:19-50
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:26:13-29:29
+ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:31:13-34:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:27:17-69
+ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:32:17-69
 	android:name
-		ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:27:25-66
+		ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:32:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:28:17-77
+ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:33:17-77
 	android:name
-		ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:28:27-74
+		ADDED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml:33:27-74
 uses-sdk
 INJECTED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\lisli\Documents\Code\Code\Android\SilentTimer\app\src\main\AndroidManifest.xml
@@ -137,16 +154,16 @@ MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\lisli\.gradle\caches\t
 MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\c0b2b962c5103dfd397c1f93f1b5ff3e\appcompat-1.2.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\f3a14ddcb087dcf8a0d24b6ec32c1e48\jetified-viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\f3a14ddcb087dcf8a0d24b6ec32c1e48\jetified-viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.fragment:fragment:1.2.5] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\bd9e62d044bc3931f0abbe5c761a6b55\fragment-1.2.5\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.fragment:fragment:1.2.5] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\bd9e62d044bc3931f0abbe5c761a6b55\fragment-1.2.5\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.3.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\b745e6b079c3700d3177b12916aa942a\fragment-1.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.3.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\b745e6b079c3700d3177b12916aa942a\fragment-1.3.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.room:room-runtime:2.2.6] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\20668fdc2da389abd6af51737aab327e\room-runtime-2.2.6\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.room:room-runtime:2.2.6] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\20668fdc2da389abd6af51737aab327e\room-runtime-2.2.6\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.2.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\f0b9ca18a95f58f670c293a2d05a3741\jetified-activity-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.2.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\f0b9ca18a95f58f670c293a2d05a3741\jetified-activity-1.2.0\AndroidManifest.xml:20:5-22:41
 MERGED from [io.reactivex.rxjava3:rxandroid:3.0.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\b58c6cf3082ba1355343b6dce0516e7a\jetified-rxandroid-3.0.0\AndroidManifest.xml:18:5-43
 MERGED from [io.reactivex.rxjava3:rxandroid:3.0.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\b58c6cf3082ba1355343b6dce0516e7a\jetified-rxandroid-3.0.0\AndroidManifest.xml:18:5-43
 MERGED from [androidx.databinding:viewbinding:4.1.2] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\4c13d31e1578558fc72b1a8fde2616f5\jetified-viewbinding-4.1.2\AndroidManifest.xml:20:5-44
 MERGED from [androidx.databinding:viewbinding:4.1.2] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\4c13d31e1578558fc72b1a8fde2616f5\jetified-viewbinding-4.1.2\AndroidManifest.xml:20:5-44
-MERGED from [androidx.activity:activity:1.1.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\e78421e67f3dd0a336b580eb41f2dbe8\jetified-activity-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.activity:activity:1.1.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\e78421e67f3dd0a336b580eb41f2dbe8\jetified-activity-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\a18f2ac95eb74ed60dc65497a0d69b90\viewpager-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\a18f2ac95eb74ed60dc65497a0d69b90\viewpager-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\3e72c4161a51179e0995e99ce0a6d14a\loader-1.0.0\AndroidManifest.xml:20:5-44
@@ -169,14 +186,16 @@ MERGED from [androidx.customview:customview:1.0.0] C:\Users\lisli\.gradle\caches
 MERGED from [androidx.customview:customview:1.0.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\3726010a38e5d564d8210b21439814fb\customview-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.core:core:1.3.1] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\209a7836b2a5d1638319d9c2e2588708\core-1.3.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.core:core:1.3.1] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\209a7836b2a5d1638319d9c2e2588708\core-1.3.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\737da3eaa36e12e9bedb2bb2b68622bd\lifecycle-runtime-2.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\737da3eaa36e12e9bedb2bb2b68622bd\lifecycle-runtime-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\2ff920e9eb6aca8fbad197077b193730\lifecycle-runtime-2.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\2ff920e9eb6aca8fbad197077b193730\lifecycle-runtime-2.3.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\4430fe2c0df4b871691b97993ed49487\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\4430fe2c0df4b871691b97993ed49487\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\9d135c59bdbd692ac098c691f9c99183\jetified-lifecycle-viewmodel-savedstate-2.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\9d135c59bdbd692ac098c691f9c99183\jetified-lifecycle-viewmodel-savedstate-2.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\b7007eccff1d8031366c9c1baa7d0145\lifecycle-viewmodel-2.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\b7007eccff1d8031366c9c1baa7d0145\lifecycle-viewmodel-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\5925432da29c8cd30b1779d30c284472\jetified-lifecycle-viewmodel-savedstate-2.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\5925432da29c8cd30b1779d30c284472\jetified-lifecycle-viewmodel-savedstate-2.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\75a36a0e31114870c1eaa260c25cb5ec\lifecycle-viewmodel-2.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\75a36a0e31114870c1eaa260c25cb5ec\lifecycle-viewmodel-2.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.1.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\0b61786afe4f7244cbb933941db53f53\jetified-savedstate-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.1.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\0b61786afe4f7244cbb933941db53f53\jetified-savedstate-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\2c688a320005d69ea4cb0e34449a8e7f\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\2c688a320005d69ea4cb0e34449a8e7f\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\b42ca945bdae92829348e74e701823c3\cardview-1.0.0\AndroidManifest.xml:20:5-44
@@ -185,12 +204,12 @@ MERGED from [androidx.sqlite:sqlite-framework:2.0.1] C:\Users\lisli\.gradle\cach
 MERGED from [androidx.sqlite:sqlite-framework:2.0.1] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\718519aad151e7df3a0ea4470d7ad7a4\sqlite-framework-2.0.1\AndroidManifest.xml:20:5-44
 MERGED from [androidx.sqlite:sqlite:2.0.1] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\8d7e3967c3337a297ca5504c15582e26\sqlite-2.0.1\AndroidManifest.xml:20:5-44
 MERGED from [androidx.sqlite:sqlite:2.0.1] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\8d7e3967c3337a297ca5504c15582e26\sqlite-2.0.1\AndroidManifest.xml:20:5-44
-MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\76c2b61a5303f4bf13213956e62e9bbe\jetified-savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\76c2b61a5303f4bf13213956e62e9bbe\jetified-savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\5cf3b83dab8be1ffa1444e04a958d54b\jetified-tracing-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\5cf3b83dab8be1ffa1444e04a958d54b\jetified-tracing-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\de50545ead4df76cfcf81499e3581a07\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\de50545ead4df76cfcf81499e3581a07\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\85eaf0fd4d92c264273bd37b9a074d7e\lifecycle-livedata-core-2.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\85eaf0fd4d92c264273bd37b9a074d7e\lifecycle-livedata-core-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\b3bf9bb968cd6cf575093d13bb67c731\lifecycle-livedata-core-2.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\b3bf9bb968cd6cf575093d13bb67c731\lifecycle-livedata-core-2.3.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\4bcb2df84b64047b1f70d087d97acaac\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\4bcb2df84b64047b1f70d087d97acaac\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\lisli\.gradle\caches\transforms-2\files-2.1\42da6144e2ae8c5301332bc76f990b08\interpolator-1.0.0\AndroidManifest.xml:20:5-44

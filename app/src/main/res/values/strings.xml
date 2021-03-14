@@ -29,12 +29,21 @@
     <string name="error_general_error">Error</string>
     <string name="error_main_activity_missing">App not working correctly, please restart it.</string>
 
+    <!-- Toast messages -->
+    <string name="toast_interval_create">Scheduled silent mode</string>
+    <string name="toast_interval_update">Updated</string>
+    <string name="toast_interval_delete">Scheduled silent mode deleted</string>
+
     <!-- LIST ITEM ALARM -->
 
     <!-- Default texts  -->
-    <string name="list_item_alarm_title">Alarm</string>
+    <string name="default_alarm_title">Alarm</string>
+    <string name="default_list_item_display_date">Date</string>
 
-
-
+    <!-- Dialog Text -->
+    <string name="permission_request_title">Permission Request</string>
+    <string name="permission_request_message">This application cannot autonomously mute/un-mute media without the \'Do Not Disturb\' permission. Select \'GRANT\' to go to the permissions screen</string>
+    <string name="permission_request_deny">Deny</string>
+    <string name="permission_request_grant">Grant</string>
 
 </resources>
