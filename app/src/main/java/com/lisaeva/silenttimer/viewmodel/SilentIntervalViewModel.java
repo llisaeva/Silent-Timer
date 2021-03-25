@@ -6,23 +6,21 @@
 
 package com.lisaeva.silenttimer.viewmodel;
 
-import android.content.SharedPreferences;
-import android.util.Log;
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 import com.lisaeva.silenttimer.BR;
-import com.lisaeva.silenttimer.SilentIntervalInitiator;
 import com.lisaeva.silenttimer.model.SilentInterval;
-import com.lisaeva.silenttimer.ui.MainActivity;
 
-public class SilentIntervalViewModel extends BaseObservable implements SharedPreferences.OnSharedPreferenceChangeListener {
+/**
+ *  ViewModel that is binded to a layout file. Represents list items on the Main screen,
+ *  and the content on the Schedule Silent Interval screen.
+ */
+public class SilentIntervalViewModel extends BaseObservable {
     private SilentInterval mSilentInterval;
-    private SharedPreferences mSharedPreferences;
+    private boolean active = false;
 
     public SilentIntervalViewModel(SilentInterval interval) {
         mSilentInterval = interval;
-        mSharedPreferences = MainActivity.getSharedPreferences();
-        mSharedPreferences.registerOnSharedPreferenceChangeListener(this);
     }
 
     @Bindable
@@ -71,12 +69,7 @@ public class SilentIntervalViewModel extends BaseObservable implements SharedPre
     public String getListItemDisplayDate() { return mSilentInterval.getListItemDisplayDate(); }
 
     @Bindable
-    public boolean getActive() {
-        if (mSharedPreferences.contains(mSilentInterval.getUuid()))
-            return true;
-        return false;
-    }
-
+    public boolean getActive() { return active; }
     public int getStartHour() { return mSilentInterval.getStartHour(); }
     public int getStartMinute() {
         return mSilentInterval.getStartMinute();
@@ -159,15 +152,7 @@ public class SilentIntervalViewModel extends BaseObservable implements SharedPre
     }
 
     public void setActive(boolean active) {
+        this.active = active;
         notifyPropertyChanged(BR.active);
-    }
-
-    @Override
-    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-        if (mSharedPreferences.contains(mSilentInterval.getUuid())) {
-            setActive(true);
-        } else {
-            setActive(false);
-        }
     }
 }

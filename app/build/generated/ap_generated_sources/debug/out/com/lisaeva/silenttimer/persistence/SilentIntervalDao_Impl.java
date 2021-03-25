@@ -29,7 +29,7 @@ public final class SilentIntervalDao_Impl implements SilentIntervalDao {
     this.__insertionAdapterOfSilentIntervalData = new EntityInsertionAdapter<SilentIntervalData>(__db) {
       @Override
       public String createQuery() {
-        return "INSERT OR REPLACE INTO `silent_timer_data` (`id`,`title`,`description`,`start_time`,`end_time`,`weekdays`,`repeat`,`show_description`) VALUES (?,?,?,?,?,?,?,?)";
+        return "INSERT OR REPLACE INTO `silent_timer_data` (`id`,`title`,`description`,`start_time`,`end_time`,`weekdays`,`repeat`,`show_description`,`position`) VALUES (?,?,?,?,?,?,?,?,?)";
       }
 
       @Override
@@ -66,6 +66,7 @@ public final class SilentIntervalDao_Impl implements SilentIntervalDao {
         }
         stmt.bindLong(7, value.getRepeat());
         stmt.bindLong(8, value.getShowDescription());
+        stmt.bindLong(9, value.getPosition());
       }
     };
     this.__deletionAdapterOfSilentIntervalData = new EntityDeletionOrUpdateAdapter<SilentIntervalData>(__db) {
@@ -86,7 +87,7 @@ public final class SilentIntervalDao_Impl implements SilentIntervalDao {
     this.__updateAdapterOfSilentIntervalData = new EntityDeletionOrUpdateAdapter<SilentIntervalData>(__db) {
       @Override
       public String createQuery() {
-        return "UPDATE OR ABORT `silent_timer_data` SET `id` = ?,`title` = ?,`description` = ?,`start_time` = ?,`end_time` = ?,`weekdays` = ?,`repeat` = ?,`show_description` = ? WHERE `id` = ?";
+        return "UPDATE OR ABORT `silent_timer_data` SET `id` = ?,`title` = ?,`description` = ?,`start_time` = ?,`end_time` = ?,`weekdays` = ?,`repeat` = ?,`show_description` = ?,`position` = ? WHERE `id` = ?";
       }
 
       @Override
@@ -123,10 +124,11 @@ public final class SilentIntervalDao_Impl implements SilentIntervalDao {
         }
         stmt.bindLong(7, value.getRepeat());
         stmt.bindLong(8, value.getShowDescription());
+        stmt.bindLong(9, value.getPosition());
         if (value.getUuid() == null) {
-          stmt.bindNull(9);
+          stmt.bindNull(10);
         } else {
-          stmt.bindString(9, value.getUuid());
+          stmt.bindString(10, value.getUuid());
         }
       }
     };
@@ -183,6 +185,7 @@ public final class SilentIntervalDao_Impl implements SilentIntervalDao {
       final int _cursorIndexOfWeekdays = CursorUtil.getColumnIndexOrThrow(_cursor, "weekdays");
       final int _cursorIndexOfRepeat = CursorUtil.getColumnIndexOrThrow(_cursor, "repeat");
       final int _cursorIndexOfShowDescription = CursorUtil.getColumnIndexOrThrow(_cursor, "show_description");
+      final int _cursorIndexOfPosition = CursorUtil.getColumnIndexOrThrow(_cursor, "position");
       final List<SilentIntervalData> _result = new ArrayList<SilentIntervalData>(_cursor.getCount());
       while(_cursor.moveToNext()) {
         final SilentIntervalData _item;
@@ -202,7 +205,9 @@ public final class SilentIntervalDao_Impl implements SilentIntervalDao {
         _tmpRepeat = _cursor.getInt(_cursorIndexOfRepeat);
         final int _tmpShowDescription;
         _tmpShowDescription = _cursor.getInt(_cursorIndexOfShowDescription);
-        _item = new SilentIntervalData(_tmpUuid,_tmpTitle,_tmpDescription,_tmpStartTime,_tmpEndTime,_tmpWeekdays,_tmpRepeat,_tmpShowDescription);
+        final int _tmpPosition;
+        _tmpPosition = _cursor.getInt(_cursorIndexOfPosition);
+        _item = new SilentIntervalData(_tmpUuid,_tmpTitle,_tmpDescription,_tmpStartTime,_tmpEndTime,_tmpWeekdays,_tmpRepeat,_tmpShowDescription,_tmpPosition);
         _result.add(_item);
       }
       return _result;
@@ -233,6 +238,7 @@ public final class SilentIntervalDao_Impl implements SilentIntervalDao {
       final int _cursorIndexOfWeekdays = CursorUtil.getColumnIndexOrThrow(_cursor, "weekdays");
       final int _cursorIndexOfRepeat = CursorUtil.getColumnIndexOrThrow(_cursor, "repeat");
       final int _cursorIndexOfShowDescription = CursorUtil.getColumnIndexOrThrow(_cursor, "show_description");
+      final int _cursorIndexOfPosition = CursorUtil.getColumnIndexOrThrow(_cursor, "position");
       final SilentIntervalData _result;
       if(_cursor.moveToFirst()) {
         final String _tmpUuid;
@@ -251,7 +257,9 @@ public final class SilentIntervalDao_Impl implements SilentIntervalDao {
         _tmpRepeat = _cursor.getInt(_cursorIndexOfRepeat);
         final int _tmpShowDescription;
         _tmpShowDescription = _cursor.getInt(_cursorIndexOfShowDescription);
-        _result = new SilentIntervalData(_tmpUuid,_tmpTitle,_tmpDescription,_tmpStartTime,_tmpEndTime,_tmpWeekdays,_tmpRepeat,_tmpShowDescription);
+        final int _tmpPosition;
+        _tmpPosition = _cursor.getInt(_cursorIndexOfPosition);
+        _result = new SilentIntervalData(_tmpUuid,_tmpTitle,_tmpDescription,_tmpStartTime,_tmpEndTime,_tmpWeekdays,_tmpRepeat,_tmpShowDescription,_tmpPosition);
       } else {
         _result = null;
       }

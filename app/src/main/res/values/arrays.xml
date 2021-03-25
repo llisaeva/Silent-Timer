@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name = "dummy_titles">
+        <!-- uuid | name | description | start-time | end-time | weekdays | repeat | show-description | position -->
+        <item>0|One| |10:00|14:30|0000000|0|0|0</item>
+        <item>1|Two| |8:00|12:00|0011011|1|0|1</item>
+        <item>2|Three| |6:30|17:30|0010000|1|0|2</item>
+        <item>3|Four| |13:20|16:40|0000000|0|0|3</item>
+        <item>4|Five| |17:45|21:30|0000000|0|0|4</item>
+        <item>5|Six| |12:50|16:30|0000000|0|0|5</item>
+        <item>6|Seven| |21:30|5:00|1111111|1|0|6</item>
+        <item>7|Eight| |3:30|10:10|1111100|1|0|7</item>
+        <item>8|Nine| |14:20|22:30|0000000|0|0|8</item>
+        <item>9|Ten| |9:25|13:30|0000000|0|0|9</item>
+    </array>
+
+    <string-array name ="theme_values">
+        <item>@string/dark_theme</item>
+        <item>@string/light_theme</item>
+    </string-array>
+
+    <string-array name = "theme_entries">
+        <item>@string/dark_theme</item>
+        <item>@string/light_theme</item>
+    </string-array>
+
+</resources>

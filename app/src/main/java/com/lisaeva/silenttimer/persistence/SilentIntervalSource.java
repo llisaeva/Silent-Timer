@@ -9,15 +9,15 @@ import java.util.List;
 public class SilentIntervalSource {
     private static SilentIntervalDatabase DATABASE;
     private static SilentIntervalDao DAO;
-    private Context context;
+    private Context mContext;
 
     public SilentIntervalSource(Context context) {
-        this.context = context;
+        this.mContext = context;
     }
 
     public synchronized void initDatabase() {
         if (DATABASE == null) {
-            DATABASE = Room.databaseBuilder(context, SilentIntervalDatabase.class, SilentIntervalDatabase.DATABASE_NAME).build();
+            DATABASE = Room.databaseBuilder(mContext, SilentIntervalDatabase.class, SilentIntervalDatabase.DATABASE_NAME).build();
             DAO = DATABASE.silentIntervalDao();
         }
     }
@@ -28,23 +28,27 @@ public class SilentIntervalSource {
 
     public synchronized void insert(SilentInterval interval) {
         if (DAO == null)initDatabase();
-        SilentIntervalData data = (SilentIntervalData) interval;
+        SilentIntervalData data = interval;
         DAO.insert(data);
 
     }
 
     public synchronized void update(SilentInterval interval) {
         if (DAO == null)initDatabase();
-        SilentIntervalData data = (SilentIntervalData) interval;
+        SilentIntervalData data = interval;
         DAO.update(data);
 
     }
 
     public synchronized void delete(SilentInterval interval) {
         if (DAO == null)initDatabase();
-        SilentIntervalData data = (SilentIntervalData) interval;
+        SilentIntervalData data = interval;
         DAO.delete(data);
+    }
 
+    public synchronized void deleteAll() {
+        if (DATABASE == null)initDatabase();
+        DATABASE.clearAllTables();
     }
 
     public synchronized List<SilentInterval> getAll() {

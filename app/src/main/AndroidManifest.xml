@@ -2,31 +2,31 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.lisaeva.silenttimer">
 
+    <!-- Permissions -->
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY"/>
 
+    <!-- General -->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat">
+        android:theme="@style/Theme.SilentTimer">
+
         <uses-library android:name="androidx.test.app" android:required="false" />
 
-        <receiver android:name=".BootEventReceiver" >
+        <!-- BroadCast receiver -->
+        <receiver android:name=".SilentIntervalReceiver"  android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.ACTION_SHUTDOWN" />
+                <action android:name="com.lisaeva.silenttimer.action_start"/>
+                <action android:name="com.lisaeva.silenttimer.action_stop" />
+                <action android:name="com.lisaeva.silenttimer.action_activate"/>
+                <action android:name="com.lisaeva.silenttimer.action_deactivate"/>
             </intent-filter>
         </receiver>
 
-        <receiver android:name=".SilentIntervalInitiator"  android:exported="true">
-            <intent-filter>
-                <action android:name="com.lisaeva.silenttimer.START_SILENT_TIMER"/>
-                <action android:name="com.lisaeva.silenttimer.STOP_SILENT_TIMER" />
-                <action android:name="com.lisaeva.silenttimer.ACTIVATE_SILENT_TIMER" />
-            </intent-filter>
-        </receiver>
-
+        <!-- Entry point -->
         <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,45 +1,63 @@
+com/lisaeva/silenttimer/ui/EditListFragment.java
+ com.lisaeva.silenttimer.ui.EditListFragment
+ com.lisaeva.silenttimer.ui.EditListFragment$1
+ com.lisaeva.silenttimer.ui.EditListFragment$Adapter
+ com.lisaeva.silenttimer.ui.EditListFragment$ViewHolder
+com/lisaeva/silenttimer/localdata/SilentIntervalList.java
+ com.lisaeva.silenttimer.localdata.SilentIntervalList
+ com.lisaeva.silenttimer.localdata.SilentIntervalList$ChangeListener
+com/lisaeva/silenttimer/persistence/SharedPreferenceUtil.java
+ com.lisaeva.silenttimer.persistence.SharedPreferenceUtil
+com/lisaeva/silenttimer/localdata/DemoIntervalList.java
+ com.lisaeva.silenttimer.localdata.DemoIntervalList
+com/lisaeva/silenttimer/ui/SettingsFragment.java
+ com.lisaeva.silenttimer.ui.SettingsFragment
+com/lisaeva/silenttimer/ui/MainActivity.java
+ com.lisaeva.silenttimer.ui.MainActivity
+com/lisaeva/silenttimer/BuildConfig.java
+ com.lisaeva.silenttimer.BuildConfig
+com/lisaeva/silenttimer/ui/ImmediateFragment.java
+ com.lisaeva.silenttimer.ui.ImmediateFragment
+com/lisaeva/silenttimer/databinding/FragmentImmediateBinding.java
+ com.lisaeva.silenttimer.databinding.FragmentImmediateBinding
+com/lisaeva/silenttimer/ui/ListFragment.java
+ com.lisaeva.silenttimer.ui.ListFragment
+ com.lisaeva.silenttimer.ui.ListFragment$1
+ com.lisaeva.silenttimer.ui.ListFragment$Adapter
+ com.lisaeva.silenttimer.ui.ListFragment$ViewHolder
+com/lisaeva/silenttimer/DataBindingTriggerClass.java
+ com.lisaeva.silenttimer.DataBindingTriggerClass
+com/lisaeva/silenttimer/localdata/SilentIntervalListAccess.java
+ com.lisaeva.silenttimer.localdata.SilentIntervalListAccess
 com/lisaeva/silenttimer/persistence/SilentIntervalData.java
  com.lisaeva.silenttimer.persistence.SilentIntervalData
+com/lisaeva/silenttimer/ui/TimePickerDialog.java
+ com.lisaeva.silenttimer.ui.TimePickerDialog
+ com.lisaeva.silenttimer.ui.TimePickerDialog$DialogResult
 com/lisaeva/silenttimer/model/SilentInterval.java
  com.lisaeva.silenttimer.model.SilentInterval
  com.lisaeva.silenttimer.model.SilentInterval$Code
 com/lisaeva/silenttimer/persistence/SilentIntervalDatabase.java
  com.lisaeva.silenttimer.persistence.SilentIntervalDatabase
-com/lisaeva/silenttimer/SilentIntervalInitiator.java
- com.lisaeva.silenttimer.SilentIntervalInitiator
 com/lisaeva/silenttimer/viewmodel/SilentIntervalViewModel.java
  com.lisaeva.silenttimer.viewmodel.SilentIntervalViewModel
-com/lisaeva/silenttimer/databinding/ListItemSilentIntervalBinding.java
- com.lisaeva.silenttimer.databinding.ListItemSilentIntervalBinding
+com/lisaeva/silenttimer/viewmodel/ImmediateViewModel.java
+ com.lisaeva.silenttimer.viewmodel.ImmediateViewModel
+com/lisaeva/silenttimer/ui/MainActivityCallback.java
+ com.lisaeva.silenttimer.ui.MainActivityCallback
+com/lisaeva/silenttimer/SilentIntervalReceiver.java
+ com.lisaeva.silenttimer.SilentIntervalReceiver
 com/lisaeva/silenttimer/SilentIntervalValidator.java
  com.lisaeva.silenttimer.SilentIntervalValidator
-com/lisaeva/silenttimer/ui/MainActivity.java
- com.lisaeva.silenttimer.ui.MainActivity
-com/lisaeva/silenttimer/ui/TimePickerFragment.java
- com.lisaeva.silenttimer.ui.TimePickerFragment
-com/lisaeva/silenttimer/ui/SilentIntervalListFragment.java
- com.lisaeva.silenttimer.ui.SilentIntervalListFragment
- com.lisaeva.silenttimer.ui.SilentIntervalListFragment$AlarmHolder
- com.lisaeva.silenttimer.ui.SilentIntervalListFragment$SilentIntervalAdapter
-com/lisaeva/silenttimer/BuildConfig.java
- com.lisaeva.silenttimer.BuildConfig
-com/lisaeva/silenttimer/BootEventReceiver.java
- com.lisaeva.silenttimer.BootEventReceiver
+com/lisaeva/silenttimer/databinding/ListItemBinding.java
+ com.lisaeva.silenttimer.databinding.ListItemBinding
+com/lisaeva/silenttimer/databinding/FragmentScheduleBinding.java
+ com.lisaeva.silenttimer.databinding.FragmentScheduleBinding
 com/lisaeva/silenttimer/persistence/SilentIntervalSource.java
  com.lisaeva.silenttimer.persistence.SilentIntervalSource
-com/lisaeva/silenttimer/databinding/FragmentSilentIntervalBinding.java
- com.lisaeva.silenttimer.databinding.FragmentSilentIntervalBinding
+com/lisaeva/silenttimer/databinding/ListItemEditBinding.java
+ com.lisaeva.silenttimer.databinding.ListItemEditBinding
 com/lisaeva/silenttimer/persistence/SilentIntervalDao.java
  com.lisaeva.silenttimer.persistence.SilentIntervalDao
-com/lisaeva/silenttimer/SilentIntervalListListener.java
- com.lisaeva.silenttimer.SilentIntervalListListener
-com/lisaeva/silenttimer/SilentIntervalListAccess.java
- com.lisaeva.silenttimer.SilentIntervalListAccess
-com/lisaeva/silenttimer/DataBindingTriggerClass.java
- com.lisaeva.silenttimer.DataBindingTriggerClass
-com/lisaeva/silenttimer/ui/ActivityCallback.java
- com.lisaeva.silenttimer.ui.ActivityCallback
-com/lisaeva/silenttimer/ui/SilentIntervalFragment.java
- com.lisaeva.silenttimer.ui.SilentIntervalFragment
-com/lisaeva/silenttimer/SilentIntervalList.java
- com.lisaeva.silenttimer.SilentIntervalList
+com/lisaeva/silenttimer/ui/ScheduleFragment.java
+ com.lisaeva.silenttimer.ui.ScheduleFragment

@@ -1,0 +1,64 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        app:title="@string/preference_category_general_title">
+
+        <ListPreference
+            app:key="@string/preference_key_theme"
+            app:title="@string/preference_theme_title"
+            app:summary="%s"
+            app:entries="@array/theme_entries"
+            app:entryValues="@array/theme_values"
+            app:defaultValue="@string/dark_theme"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:title="@string/preference_category_configure_title"
+        app:summary="@string/preference_category_configure_summary">
+
+        <Preference app:key="@string/preference_key_increment_1"/>
+        <Preference app:key="@string/preference_key_increment_2"/>
+        <Preference app:key="@string/preference_key_increment_3"/>
+        <Preference app:key="@string/preference_key_increment_4"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:title="@string/preference_category_debug_title">
+
+        <Preference
+            app:key="@string/preference_key_clear_list"
+            app:title="@string/preference_clear_list_title"
+            app:summary="@string/preference_clear_list_summary" />
+
+        <Preference
+            app:key="@string/preference_key_clear_pi"
+            app:title="@string/preference_clear_pi_title"
+            app:summary="@string/preference_clear_pi_summary" />
+.
+        <Preference
+            app:key="@string/preference_key_clear_database"
+            app:title="@string/preference_clear_database_title"
+            app:summary="@string/preference_clear_database_summary" />
+
+        <SwitchPreferenceCompat
+            app:key="@string/preference_key_demo"
+            app:title="@string/preference_demo_title"
+            app:summary="@string/preference_demo_summary"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:title="@string/preference_category_stats_title">
+
+        <Preference
+            app:key="@string/preference_key_active_pi"
+            app:title="@string/preference_active_pi_title"
+            app:summary="@string/preference_active_pi_summary"/>
+
+    </PreferenceCategory>
+
+
+
+</PreferenceScreen>

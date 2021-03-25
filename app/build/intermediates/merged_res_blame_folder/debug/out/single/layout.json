@@ -1,10 +1,22 @@
 [
     {
-        "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\list_item_silent_interval.xml",
-        "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\src\\main\\res\\layout\\list_item_silent_interval.xml"
+        "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\list_item_edit.xml",
+        "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\src\\main\\res\\layout\\list_item_edit.xml"
     },
     {
-        "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_silent_interval.xml",
-        "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\src\\main\\res\\layout\\fragment_silent_interval.xml"
+        "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\list_item_schedule.xml",
+        "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\src\\main\\res\\layout\\list_item_schedule.xml"
+    },
+    {
+        "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\list_item.xml",
+        "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\src\\main\\res\\layout\\list_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_schedule.xml",
+        "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\src\\main\\res\\layout\\fragment_schedule.xml"
+    },
+    {
+        "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_immediate.xml",
+        "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\src\\main\\res\\layout\\fragment_immediate.xml"
     }
 ]

@@ -6,6 +6,9 @@ import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
+/**
+ * Represents a row entry of a SilentInterval in a database.
+ */
 @Entity(tableName = "silent_timer_data")
 public class SilentIntervalData {
 
@@ -35,7 +38,10 @@ public class SilentIntervalData {
     @ColumnInfo(name="show_description")
     private int showDescription;
 
-    public SilentIntervalData(String uuid, String title, String description, String startTime, String endTime, String weekdays, int repeat, int showDescription) {
+    @ColumnInfo(name="position")
+    private int position;
+
+    public SilentIntervalData(String uuid, String title, String description, String startTime, String endTime, String weekdays, int repeat, int showDescription, int position) {
         this.uuid = uuid;
         this.title = title;
         this.description = description;
@@ -44,6 +50,7 @@ public class SilentIntervalData {
         this.weekdays = weekdays;
         this.repeat = repeat;
         this.showDescription = showDescription;
+        this.position = position;
     }
 
     // get() ---------------------------------------------------------------------------------------
@@ -56,6 +63,7 @@ public class SilentIntervalData {
     public String getWeekdays() { return weekdays; }
     public int getRepeat() { return repeat; }
     public int getShowDescription() { return showDescription; }
+    public int getPosition() { return position; }
 
     // set() ---------------------------------------------------------------------------------------
 
@@ -67,6 +75,7 @@ public class SilentIntervalData {
     public void setWeekdays(String weekdays) { this.weekdays = weekdays; }
     public void setRepeat(int repeat) { this.repeat = repeat; }
     public void setShowDescription(int showDescription) { this.showDescription = showDescription; }
+    public void setPosition(int position) { this.position = position; }
 
     @Ignore
     @Override

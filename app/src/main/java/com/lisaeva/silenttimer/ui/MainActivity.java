@@ -4,70 +4,82 @@ import android.app.AlertDialog;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import com.lisaeva.silenttimer.R;
-import com.lisaeva.silenttimer.SilentIntervalInitiator;
+import com.lisaeva.silenttimer.persistence.SharedPreferenceUtil;
 
-public class MainActivity extends AppCompatActivity implements ActivityCallback {
-    private FragmentManager fragmentManager;
-    private static SharedPreferences sharedPreferences;
-    private int layoutContainer = R.id.fragment_container;
+/**
+ * Application entry point.
+ * Acts as a container for all fragments that display the UI.
+ */
+public class MainActivity extends AppCompatActivity implements MainActivityCallback {
+    private static final int LAYOUT = R.layout.activity_main;
+    private static final int LAYOUT_CONTAINER = R.id.fragment_container;
 
-    public MainActivity() {
-        super(R.layout.activity_main);
-    }
+    private Context mContext;
+    private FragmentManager mFragmentManager;
+
+    public MainActivity() { super(LAYOUT); }
+
+    // Life Cycle ----------------------------------------------------------------------------------
 
     @Override
     public void onCreate(Bundle savedInstance) {
+        mFragmentManager = getSupportFragmentManager();
+        mContext = getApplicationContext();
+        SharedPreferenceUtil sharedPreferenceUtil = new SharedPreferenceUtil(mContext);
+        sharedPreferenceUtil.setAppTheme(this);
         super.onCreate(savedInstance);
-        sharedPreferences = getApplicationContext().getSharedPreferences(SilentIntervalInitiator.PREFERENCES_SAVED_HANDLES_KEY, Context.MODE_PRIVATE);
-        fragmentManager = getSupportFragmentManager();
-
-        if (savedInstance == null) {
-            fragmentManager.beginTransaction()
-                    .setReorderingAllowed(true)
-                    .add(layoutContainer, SilentIntervalListFragment.class, null)
-                    .commit();
-        }
+        if (savedInstance == null)openListFragment();
     }
 
-    public static SharedPreferences getSharedPreferences() {
-        return sharedPreferences;
-    }
+    // Fragments -----------------------------------------------------------------------------------
 
     @Override
-    public void openSilentIntervalFragment() {
-        fragmentManager.beginTransaction()
+    public void openListFragment() {
+        if (mFragmentManager.getFragments().isEmpty())openFragment(ListFragment.class, false);
+        else mFragmentManager.popBackStack();
+    }
+
+    @Override public void openScheduleFragment() { openFragment(ScheduleFragment.class, true); }
+    @Override public void openImmediateFragment() { openFragment(ImmediateFragment.class, true); }
+    @Override public void openEditListFragment() { openFragment(EditListFragment.class, true); }
+    @Override public void openSettings() { openFragment(SettingsFragment.class, true); }
+
+    private void openFragment(@NonNull Class<? extends androidx.fragment.app.Fragment> fragmentClass, boolean addToBackStack) {
+        FragmentTransaction transaction = mFragmentManager.beginTransaction()
                 .setReorderingAllowed(true)
-                .replace(layoutContainer, SilentIntervalFragment.class, null)
-                .addToBackStack(null)
-                .commit();
+                .replace(LAYOUT_CONTAINER, fragmentClass, null);
+        if (addToBackStack)transaction.addToBackStack(null);
+        transaction.commit();
     }
 
-    @Override
-    public void openSilentIntervalListFragment() {
-        fragmentManager.popBackStack();
-    }
+    // Utilities -----------------------------------------------------------------------------------
+
+    @Override public @NonNull Context getContext() { return mContext; }
 
     @Override
     public void requestPermissions() {
-        NotificationManager mNotificationManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
-        AlertDialog dialog = new AlertDialog.Builder(this)
-                .setTitle(R.string.permission_request_title)
-                .setMessage(R.string.permission_request_message)
-                .setNegativeButton(R.string.permission_request_deny, (alert, which) -> {
-                    alert.dismiss();
-                })
-                .setPositiveButton(R.string.permission_request_grant, (alert, which) -> {
-                    Intent intent = new Intent(android.provider.Settings.ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS);
-                    startActivity(intent);
-                    alert.dismiss();
-                }).create();
-        dialog.show();
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+            AlertDialog dialog = new AlertDialog.Builder(this)
+                    .setTitle(R.string.permission_request_title)
+                    .setMessage(R.string.permission_request_message)
+                    .setNegativeButton(R.string.permission_request_deny, (alert, which) -> {
+                        alert.dismiss();
+                    })
+                    .setPositiveButton(R.string.permission_request_grant, (alert, which) -> {
+                        Intent intent = null;
+                        intent = new Intent(android.provider.Settings.ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS);
+                        startActivity(intent);
+                        alert.dismiss();
+                    }).create();
+            dialog.show();
+        }
     }
 
     @Override

@@ -6,8 +6,10 @@ import android.view.View;
 import androidx.databinding.DataBinderMapper;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
-import com.lisaeva.silenttimer.databinding.FragmentSilentIntervalBindingImpl;
-import com.lisaeva.silenttimer.databinding.ListItemSilentIntervalBindingImpl;
+import com.lisaeva.silenttimer.databinding.FragmentImmediateBindingImpl;
+import com.lisaeva.silenttimer.databinding.FragmentScheduleBindingImpl;
+import com.lisaeva.silenttimer.databinding.ListItemBindingImpl;
+import com.lisaeva.silenttimer.databinding.ListItemEditBindingImpl;
 import java.lang.IllegalArgumentException;
 import java.lang.Integer;
 import java.lang.Object;
@@ -19,15 +21,21 @@ import java.util.HashMap;
 import java.util.List;
 
 public class DataBinderMapperImpl extends DataBinderMapper {
-  private static final int LAYOUT_FRAGMENTSILENTINTERVAL = 1;
+  private static final int LAYOUT_FRAGMENTIMMEDIATE = 1;
 
-  private static final int LAYOUT_LISTITEMSILENTINTERVAL = 2;
+  private static final int LAYOUT_FRAGMENTSCHEDULE = 2;
 
-  private static final SparseIntArray INTERNAL_LAYOUT_ID_LOOKUP = new SparseIntArray(2);
+  private static final int LAYOUT_LISTITEM = 3;
+
+  private static final int LAYOUT_LISTITEMEDIT = 4;
+
+  private static final SparseIntArray INTERNAL_LAYOUT_ID_LOOKUP = new SparseIntArray(4);
 
   static {
-    INTERNAL_LAYOUT_ID_LOOKUP.put(com.lisaeva.silenttimer.R.layout.fragment_silent_interval, LAYOUT_FRAGMENTSILENTINTERVAL);
-    INTERNAL_LAYOUT_ID_LOOKUP.put(com.lisaeva.silenttimer.R.layout.list_item_silent_interval, LAYOUT_LISTITEMSILENTINTERVAL);
+    INTERNAL_LAYOUT_ID_LOOKUP.put(com.lisaeva.silenttimer.R.layout.fragment_immediate, LAYOUT_FRAGMENTIMMEDIATE);
+    INTERNAL_LAYOUT_ID_LOOKUP.put(com.lisaeva.silenttimer.R.layout.fragment_schedule, LAYOUT_FRAGMENTSCHEDULE);
+    INTERNAL_LAYOUT_ID_LOOKUP.put(com.lisaeva.silenttimer.R.layout.list_item, LAYOUT_LISTITEM);
+    INTERNAL_LAYOUT_ID_LOOKUP.put(com.lisaeva.silenttimer.R.layout.list_item_edit, LAYOUT_LISTITEMEDIT);
   }
 
   @Override
@@ -39,17 +47,29 @@ public class DataBinderMapperImpl extends DataBinderMapper {
         throw new RuntimeException("view must have a tag");
       }
       switch(localizedLayoutId) {
-        case  LAYOUT_FRAGMENTSILENTINTERVAL: {
-          if ("layout/fragment_silent_interval_0".equals(tag)) {
-            return new FragmentSilentIntervalBindingImpl(component, view);
+        case  LAYOUT_FRAGMENTIMMEDIATE: {
+          if ("layout/fragment_immediate_0".equals(tag)) {
+            return new FragmentImmediateBindingImpl(component, view);
           }
-          throw new IllegalArgumentException("The tag for fragment_silent_interval is invalid. Received: " + tag);
+          throw new IllegalArgumentException("The tag for fragment_immediate is invalid. Received: " + tag);
         }
-        case  LAYOUT_LISTITEMSILENTINTERVAL: {
-          if ("layout/list_item_silent_interval_0".equals(tag)) {
-            return new ListItemSilentIntervalBindingImpl(component, view);
+        case  LAYOUT_FRAGMENTSCHEDULE: {
+          if ("layout/fragment_schedule_0".equals(tag)) {
+            return new FragmentScheduleBindingImpl(component, view);
           }
-          throw new IllegalArgumentException("The tag for list_item_silent_interval is invalid. Received: " + tag);
+          throw new IllegalArgumentException("The tag for fragment_schedule is invalid. Received: " + tag);
+        }
+        case  LAYOUT_LISTITEM: {
+          if ("layout/list_item_0".equals(tag)) {
+            return new ListItemBindingImpl(component, view);
+          }
+          throw new IllegalArgumentException("The tag for list_item is invalid. Received: " + tag);
+        }
+        case  LAYOUT_LISTITEMEDIT: {
+          if ("layout/list_item_edit_0".equals(tag)) {
+            return new ListItemEditBindingImpl(component, view);
+          }
+          throw new IllegalArgumentException("The tag for list_item_edit is invalid. Received: " + tag);
         }
       }
     }
@@ -122,11 +142,13 @@ public class DataBinderMapperImpl extends DataBinderMapper {
   }
 
   private static class InnerLayoutIdLookup {
-    static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(2);
+    static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(4);
 
     static {
-      sKeys.put("layout/fragment_silent_interval_0", com.lisaeva.silenttimer.R.layout.fragment_silent_interval);
-      sKeys.put("layout/list_item_silent_interval_0", com.lisaeva.silenttimer.R.layout.list_item_silent_interval);
+      sKeys.put("layout/fragment_immediate_0", com.lisaeva.silenttimer.R.layout.fragment_immediate);
+      sKeys.put("layout/fragment_schedule_0", com.lisaeva.silenttimer.R.layout.fragment_schedule);
+      sKeys.put("layout/list_item_0", com.lisaeva.silenttimer.R.layout.list_item);
+      sKeys.put("layout/list_item_edit_0", com.lisaeva.silenttimer.R.layout.list_item_edit);
     }
   }
 }

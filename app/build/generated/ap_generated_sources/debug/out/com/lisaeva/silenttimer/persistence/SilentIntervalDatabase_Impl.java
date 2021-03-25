@@ -30,9 +30,9 @@ public final class SilentIntervalDatabase_Impl extends SilentIntervalDatabase {
     final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(1) {
       @Override
       public void createAllTables(SupportSQLiteDatabase _db) {
-        _db.execSQL("CREATE TABLE IF NOT EXISTS `silent_timer_data` (`id` TEXT NOT NULL, `title` TEXT, `description` TEXT, `start_time` TEXT, `end_time` TEXT, `weekdays` TEXT, `repeat` INTEGER NOT NULL, `show_description` INTEGER NOT NULL, PRIMARY KEY(`id`))");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `silent_timer_data` (`id` TEXT NOT NULL, `title` TEXT, `description` TEXT, `start_time` TEXT, `end_time` TEXT, `weekdays` TEXT, `repeat` INTEGER NOT NULL, `show_description` INTEGER NOT NULL, `position` INTEGER NOT NULL, PRIMARY KEY(`id`))");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '521910c54b147ff47c515f5612c79225')");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '16fc6642bcb1ffb1ddc01778ad469c9f')");
       }
 
       @Override
@@ -76,7 +76,7 @@ public final class SilentIntervalDatabase_Impl extends SilentIntervalDatabase {
 
       @Override
       protected RoomOpenHelper.ValidationResult onValidateSchema(SupportSQLiteDatabase _db) {
-        final HashMap<String, TableInfo.Column> _columnsSilentTimerData = new HashMap<String, TableInfo.Column>(8);
+        final HashMap<String, TableInfo.Column> _columnsSilentTimerData = new HashMap<String, TableInfo.Column>(9);
         _columnsSilentTimerData.put("id", new TableInfo.Column("id", "TEXT", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsSilentTimerData.put("title", new TableInfo.Column("title", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsSilentTimerData.put("description", new TableInfo.Column("description", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
@@ -85,6 +85,7 @@ public final class SilentIntervalDatabase_Impl extends SilentIntervalDatabase {
         _columnsSilentTimerData.put("weekdays", new TableInfo.Column("weekdays", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsSilentTimerData.put("repeat", new TableInfo.Column("repeat", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsSilentTimerData.put("show_description", new TableInfo.Column("show_description", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsSilentTimerData.put("position", new TableInfo.Column("position", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         final HashSet<TableInfo.ForeignKey> _foreignKeysSilentTimerData = new HashSet<TableInfo.ForeignKey>(0);
         final HashSet<TableInfo.Index> _indicesSilentTimerData = new HashSet<TableInfo.Index>(0);
         final TableInfo _infoSilentTimerData = new TableInfo("silent_timer_data", _columnsSilentTimerData, _foreignKeysSilentTimerData, _indicesSilentTimerData);
@@ -96,7 +97,7 @@ public final class SilentIntervalDatabase_Impl extends SilentIntervalDatabase {
         }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "521910c54b147ff47c515f5612c79225", "485889d0c0a135c2ad98c67c981fe1d3");
+    }, "16fc6642bcb1ffb1ddc01778ad469c9f", "f47b56a16f12114a25dc267a33926556");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)

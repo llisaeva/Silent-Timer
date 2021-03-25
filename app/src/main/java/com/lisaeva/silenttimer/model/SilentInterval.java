@@ -1,15 +1,9 @@
 package com.lisaeva.silenttimer.model;
 
-import android.os.Bundle;
-import android.util.Log;
-import androidx.databinding.library.baseAdapters.BR;
-import com.lisaeva.silenttimer.SilentIntervalInitiator;
 import com.lisaeva.silenttimer.persistence.SilentIntervalData;
-import com.lisaeva.silenttimer.viewmodel.SilentIntervalViewModel;
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeConstants;
 import org.joda.time.Duration;
-import org.joda.time.Hours;
 import org.joda.time.Interval;
 import org.joda.time.LocalTime;
 import org.joda.time.format.DateTimeFormat;
@@ -18,8 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * Represents a silent interval, formats SilentIntervalData's fields for UI representation.
+ */
 public class SilentInterval extends SilentIntervalData {
-    public static final DateTimeFormatter formatter = DateTimeFormat.forPattern("HH:mm");
+    public static final DateTimeFormatter FORMATTER = DateTimeFormat.forPattern("HH:mm");
     public static final String DEFAULT_SILENT_INTERVAL_TITLE = "Mute Audio";
 
     public SilentInterval() {
@@ -29,6 +26,7 @@ public class SilentInterval extends SilentIntervalData {
                 null,
                 null,
                 Code.NEVER.toString(),
+                0,
                 0,
                 0);
     }
@@ -41,18 +39,15 @@ public class SilentInterval extends SilentIntervalData {
                 data.getEndTime(),
                 data.getWeekdays(),
                 data.getRepeat(),
-                data.getShowDescription());
+                data.getShowDescription(),
+                data.getPosition());
     }
 
     // is() ----------------------------------------------------------------------------------------
 
-    public boolean isRepeat() {
-        return super.getRepeat() == 1 ? true : false;
-    }
+    public boolean isRepeat() { return super.getRepeat() == 1; }
 
-    public boolean isShowDescription() {
-        return super.getShowDescription() == 1 ? true : false;
-    }
+    public boolean isShowDescription() { return super.getShowDescription() == 1; }
 
     // get() ---------------------------------------------------------------------------------------
 
@@ -64,7 +59,7 @@ public class SilentInterval extends SilentIntervalData {
         String startTime = super.getStartTime();
         LocalTime time;
         if (startTime != null) {
-            time = formatter.parseLocalTime(startTime);
+            time = FORMATTER.parseLocalTime(startTime);
         } else {
             time = LocalTime.now();
         }
@@ -75,7 +70,7 @@ public class SilentInterval extends SilentIntervalData {
         String startTime = super.getStartTime();
         LocalTime time;
         if (startTime != null) {
-            time = formatter.parseLocalTime(startTime);
+            time = FORMATTER.parseLocalTime(startTime);
         } else {
             time = LocalTime.now();
         }
@@ -86,7 +81,7 @@ public class SilentInterval extends SilentIntervalData {
         String endTime = super.getEndTime();
         LocalTime time;
         if (endTime != null) {
-            time = formatter.parseLocalTime(endTime);
+            time = FORMATTER.parseLocalTime(endTime);
         } else {
             time = LocalTime.now();
         }
@@ -97,7 +92,7 @@ public class SilentInterval extends SilentIntervalData {
         String endTime = super.getEndTime();
         LocalTime time;
         if (endTime != null) {
-            time = formatter.parseLocalTime(endTime);
+            time = FORMATTER.parseLocalTime(endTime);
         } else {
             time = LocalTime.now();
         }
@@ -117,9 +112,9 @@ public class SilentInterval extends SilentIntervalData {
 
         DateTime startTime;
         if (startTimeString == null)startTime = DateTime.now();
-        else startTime = DateTime.now().withFields(formatter.parseLocalTime(startTimeString));
+        else startTime = DateTime.now().withFields(FORMATTER.parseLocalTime(startTimeString));
 
-        DateTime endTime = DateTime.now().withFields(formatter.parseLocalTime(endTimeString));
+        DateTime endTime = DateTime.now().withFields(FORMATTER.parseLocalTime(endTimeString));
 
         if (startTime.isAfter(endTime)) {
             endTime = endTime.plusDays(1);
@@ -127,7 +122,7 @@ public class SilentInterval extends SilentIntervalData {
 
         Duration duration = new Interval(startTime, endTime).toDuration();
         int hours = duration.toStandardHours().getHours();
-        int minutes = duration.toStandardMinutes().getMinutes() - hours * 24;
+        int minutes = duration.toStandardMinutes().getMinutes() - hours * 60;
         return hours + "h " + minutes + "min";
     }
 
@@ -173,13 +168,13 @@ public class SilentInterval extends SilentIntervalData {
 
     public SilentInterval setStartDate(int hour, int min) {
         LocalTime time = new LocalTime(hour, min);
-        super.setStartTime(formatter.print(time));
+        super.setStartTime(FORMATTER.print(time));
         return this;
     }
 
     public SilentInterval setEndDate(int hour, int min) {
         LocalTime time = new LocalTime(hour, min);
-        super.setEndTime(formatter.print(time));
+        super.setEndTime(FORMATTER.print(time));
         return this;
     }
 
@@ -209,63 +204,6 @@ public class SilentInterval extends SilentIntervalData {
 
     // ---------------------------------------------------------------------------------------------
 
-    public static String formatInterval(String startTime, String endTime) {
-        return startTime + "|" + endTime;
-    }
-
-    public static String formatInterval(Interval interval) {
-        DateTimeFormatter extraFormatter = SilentIntervalInitiator.formatter;
-        return formatInterval(extraFormatter.print(interval.getStart()), extraFormatter.print(interval.getEnd()));
-    }
-
-    public static Interval parseInterval(String pair) {
-        DateTimeFormatter extraFormatter = SilentIntervalInitiator.formatter;
-        String[] times = pair.split("\\|",2);
-        return new Interval (extraFormatter.parseDateTime(times[0]), extraFormatter.parseDateTime(times[1]));
-    }
-
-    public Bundle toBundle() {
-        String startTime = getStartTime();
-        String endTime = getEndTime();
-        String weekcode = getWeekdays();
-        if (startTime == null || endTime == null || weekcode == null) return null; //TODO: THROW EXCEPTION
-
-        DateTime startDate = new DateTime();
-        DateTime endDate = new DateTime();
-
-        startDate = startDate.withFields(formatter.parseLocalTime(startTime));
-        endDate = endDate.withFields(formatter.parseLocalTime(endTime));
-
-        int offset = 0;
-        if (startDate.isAfter(endDate)) {
-            offset = 1;
-            endDate = endDate.plusDays(offset);
-        } else if (startDate.equals(endDate)) {
-            endDate = endDate.plusMinutes(5);
-        }
-
-        Bundle bundle = new Bundle();
-        bundle.putString(SilentIntervalInitiator.EXTRA_UUID, getUuid());
-        bundle.putBoolean(SilentIntervalInitiator.EXTRA_REPEAT, isRepeat());
-        DateTimeFormatter extraFormatter = SilentIntervalInitiator.formatter;
-
-        if (isRepeat()) {
-            List<Code> repeatDays = Code.parseWeekString(weekcode);
-            ArrayList<String> repeatCodes = new ArrayList<>(repeatDays.size());
-
-            for (Code weekday : repeatDays) {
-                String weekdayCode = formatInterval(extraFormatter.print(startDate.withDayOfWeek(weekday.jodaTimeConstant).minusDays(7)),
-                        extraFormatter.print(endDate.withDayOfWeek(weekday.jodaTimeConstant).plusDays(offset).minusDays(7)));
-                repeatCodes.add(weekdayCode);
-            }
-            bundle.putStringArrayList(SilentIntervalInitiator.EXTRA_WEEKDAYS, repeatCodes);
-        } else {
-            bundle.putString(SilentIntervalInitiator.EXTRA_START_TIME, extraFormatter.print(startDate));
-            bundle.putString(SilentIntervalInitiator.EXTRA_END_TIME, extraFormatter.print(endDate));
-        }
-        return bundle;
-    }
-
     public void copy(SilentInterval copyFrom) {
         setUuid(copyFrom.getUuid());
         setTitle(copyFrom.getTitle());
@@ -275,6 +213,7 @@ public class SilentInterval extends SilentIntervalData {
         setWeekdays(copyFrom.getWeekdays());
         setRepeat(copyFrom.getRepeat());
         setShowDescription(copyFrom.getShowDescription());
+        setPosition(copyFrom.getPosition());
     }
 
     @Override
@@ -307,7 +246,6 @@ public class SilentInterval extends SilentIntervalData {
         DAY_CHECKED(-1, "1", '1', -1),
         DAY_UNCHECKED(-1, "0", '0', -1);
 
-
         private int index;
         private String name;
         private char symbol;
@@ -320,12 +258,13 @@ public class SilentInterval extends SilentIntervalData {
             this.jodaTimeConstant = jodaTimeConstant;
         }
 
-        @Override
-        public String toString() { return name; }
+        public int jodaTimeConstant() { return jodaTimeConstant; }
+
+        @Override public String toString() { return name; }
 
         public static List<Code> parseWeekString(String weekcode) {
             List<Code> list = new ArrayList<>();
-            if(weekcode.equals(NEVER))return null;
+            if(weekcode.equals(NEVER.name))return null;
 
             for (int i = 0; i<weekcode.length(); i++) {
                 if (weekcode.charAt(i) == DAY_CHECKED.symbol) {
@@ -336,8 +275,6 @@ public class SilentInterval extends SilentIntervalData {
                     else if (i == THURSDAY.index)list.add(THURSDAY);
                     else if (i == FRIDAY.index)list.add(FRIDAY);
                     else if (i == SATURDAY.index)list.add(SATURDAY);
-                    else // TODO: THROW EXCEPTION
-                    ;
                 }
             }
             return list;

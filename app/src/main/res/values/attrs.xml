@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="icon_add" format="reference"/>
+    <attr name="icon_arrow" format="reference"/>
+    <attr name="icon_check_all_items" format="reference"/>
+    <attr name="icon_check_mark" format="reference"/>
+    <attr name="icon_reorder_handle" format="reference"/>
+    <attr name="icon_trash" format="reference"/>
+    <attr name="text_title_color" format="reference"/>
+</resources>

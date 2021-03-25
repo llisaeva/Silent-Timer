@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/delete_silent_interval"
+        android:icon="?attr/icon_trash"
+        android:title="@string/fragment_schedule_delete"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/save_silent_interval"
+        android:icon="?attr/icon_check_mark"
+        android:title="@string/fragment_schedule_save"
+        app:showAsAction="ifRoom"/>
+
+</menu>

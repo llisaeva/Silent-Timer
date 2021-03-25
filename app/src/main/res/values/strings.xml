@@ -1,49 +1,143 @@
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">SilentTimer</string>
 
+    <!-- List Fragment -->
+    <string name="fragment_list_empty">List is Empty</string>
+    <string name="list_item_title">Mute Audio</string>
+    <string name="list_item_display_date">Date</string>
 
-    <!-- FRAGMENT ALARM -->
+    <!-- ScheduleFragment -->
+    <string name="fragment_schedule_title_hint">Title</string>
+    <string name="fragment_schedule_hint_start_time">Start Time</string>
+    <string name="fragment_schedule_hint_end_time">End Time</string>
+    <string name="fragment_schedule_repeat_start_time">Repeat (start time)</string>
+    <string name="fragment_schedule_checkbox_show_description">Show Description</string>
+    <string name="fragment_schedule_checkbox_sunday">S</string>
+    <string name="fragment_schedule_checkbox_monday">M</string>
+    <string name="fragment_schedule_checkbox_tuesday">T</string>
+    <string name="fragment_schedule_checkbox_wednesday">W</string>
+    <string name="fragment_schedule_checkbox_thursday">T</string>
+    <string name="fragment_schedule_checkbox_friday">F</string>
+    <string name="fragment_schedule_checkbox_saturday">S</string>
+    <string name="fragment_schedule_toast_interval_create">scheduled silent mode</string>
+    <string name="fragment_schedule_toast_interval_update">updated silent interval</string>
+    <string name="fragment_schedule_toast_interval_delete">silent interval deleted</string>
 
-    <!-- Default texts  -->
-    <string name="fragment_alarm_title_default">TITLE</string>
-    <string name="fragment_alarm_checkbox_show_description">Show Discription</string>
-    <string name="fragment_alarm_edittext_start_time">Current</string>
-    <string name="fragment_alarm_edittext_end_time"> ... </string>
+    <!-- ImmediateFragment -->
+    <string name="fragment_immediate_toast_add">silent interval set</string>
+    <string name="fragment_immediate_title">Turn on audio after:</string>
+    <string name="fragment_immediate_button">CHOOSE CLOCK TIME</string>
 
-    <!-- Labels -->
-    <string name="fragment_alarm_title_hint">Title</string>
-    <string name="fragment_alarm_hint_start_time">Start Time</string>
-    <string name="fragment_alarm_hint_end_time">End Time</string>
+    <!-- Number Picker -->
+    <string name="number_picker_radio_minutes">Minutes</string>
+    <string name="number_picker_radio_hours">Hours</string>
 
-    <string name="fragment_alarm_repeat_start_time">Repeat (start time)</string>
-    <string name="fragment_alarm_checkbox_sunday">S</string>
-    <string name="fragment_alarm_checkbox_monday">M</string>
-    <string name="fragment_alarm_checkbox_tuesday">T</string>
-    <string name="fragment_alarm_checkbox_wednesday">W</string>
-    <string name="fragment_alarm_checkbox_thursday">T</string>
-    <string name="fragment_alarm_checkbox_friday">F</string>
-    <string name="fragment_alarm_checkbox_saturday">S</string>
-
-    <!-- Error codes -->
-    <string name="error_end_date_missing">Please enter an end date.</string>
-    <string name="error_general_error">Error</string>
-    <string name="error_main_activity_missing">App not working correctly, please restart it.</string>
-
-    <!-- Toast messages -->
-    <string name="toast_interval_create">Scheduled silent mode</string>
-    <string name="toast_interval_update">Updated</string>
-    <string name="toast_interval_delete">Scheduled silent mode deleted</string>
-
-    <!-- LIST ITEM ALARM -->
-
-    <!-- Default texts  -->
-    <string name="default_alarm_title">Alarm</string>
-    <string name="default_list_item_display_date">Date</string>
-
-    <!-- Dialog Text -->
+    <!-- Permission Dialog Text -->
     <string name="permission_request_title">Permission Request</string>
-    <string name="permission_request_message">This application cannot autonomously mute/un-mute media without the \'Do Not Disturb\' permission. Select \'GRANT\' to go to the permissions screen</string>
+    <string name="permission_request_message">This application cannot autonomously mute or un-mute media without the \'Do Not Disturb\' permission. Select \'GRANT\' to go to the permissions screen.</string>
     <string name="permission_request_deny">Deny</string>
     <string name="permission_request_grant">Grant</string>
 
+    <!-- Menus -->
+        <!-- List Fragment Menu -->
+    <string name="fragment_list_menu_schedule">Schedule Silent Mode</string>
+    <string name="fragment_list_menu_edit_list">Edit List</string>
+    <string name="fragment_list_menu_settings">Settings</string>
+    <string name="fragment_list_menu_help">Help</string>
+    <string name="fragment_list_menu_immediate">Schedule Immediate Silent Mode</string>
+
+        <!-- Edit List Fragment Menu -->
+    <string name="fragment_list_item_edit_accept_changes">Accept Changes</string>
+    <string name="fragment_list_item_edit_check_all_items">Mark All Items</string>
+    <string name="fragment_list_item_edit_delete">Delete Checked Items</string>
+
+        <!-- Schedule Fragment Menu -->
+    <string name="fragment_schedule_delete">Delete</string>
+    <string name="fragment_schedule_save">Save</string>
+
+        <!-- Immediate Fragment Menu -->
+    <string name="fragment_immediate_menu_cancel">Cancel</string>
+
+    <!-- Settings -->
+        <!-- Preference Keys -->
+    <string name="preference_key_active_pi_file" translatable="false">com.lisaeva.silenttimer.shared_preferences_pending_intents</string>
+    <string name="preference_key_started_uuids" translatable="false">com.lisaeva.silenttimer.started_uuids</string>
+    <string name="preference_key_request_code" translatable="false">com.lisaeva.silenttimer.request_code</string>
+    <string name="preference_key_theme" translatable="false">com.lisaeva.silenttimer.preference_theme</string>
+    <string name="preference_key_clear_list" translatable="false">com.lisaeva.silenttimer.clear_list</string>
+    <string name="preference_key_clear_pi" translatable="false">com.lisaeva.silenttimer.clear_pending_intents</string>
+    <string name="preference_key_clear_database" translatable="false">com.lisaeva.silenttimer.clear_database</string>
+    <string name="preference_key_demo" translatable="false">com.lisaeva.silenttimer.demo_mode</string>
+    <string name="preference_key_active_pi" translatable="false">com.lisaeva.silenttimer.active_pending_intents</string>
+    <string name="preference_key_increment_1" translatable="false">com.lisaeva.silenttimer.time_increment_1</string>
+    <string name="preference_key_increment_2" translatable="false">com.lisaeva.silenttimer.time_increment_2</string>
+    <string name="preference_key_increment_3" translatable="false">com.lisaeva.silenttimer.time_increment_3</string>
+    <string name="preference_key_increment_4" translatable="false">com.lisaeva.silenttimer.time_increment_4</string>
+    <string name="preference_key_demo_mode_active_ids" translatable="false">com.lisaeva.silenttimer.demo_mode_active_ids</string>
+
+        <!-- Preference Categories -->
+    <string name="preference_category_general_title">General</string>
+    <string name="preference_category_configure_title">Configure</string>
+    <string name="preference_category_configure_summary">Change time increments</string>
+    <string name="preference_category_debug_title">Debug</string>
+    <string name="preference_category_stats_title">App Stats</string>
+
+        <!-- Theme Preference -->
+    <string name="preference_theme_title">Theme</string>
+
+        <!-- Clear List Preference -->
+    <string name="preference_clear_list_summary">Removes all active silent intervals represented on the UI. This will deactivate them.</string>
+    <string name="preference_clear_list_title">Clear PendingIntents</string>
+    <string name="preference_clear_list_title_dialog">Clear List</string>
+    <string name="preference_clear_list_message_dialog">Click to confirm</string>
+    <string name="preference_clear_list_positive_dialog">CONFIRM</string>
+    <string name="preference_clear_list_negative_dialog">CANCEL</string>
+    <string name="preference_clear_list_toast_dialog">clearing list...</string>
+
+        <!-- Clear PendingIntents Preference -->
+    <string name="preference_clear_pi_summary">Removes all active PendingIntents owned by this app. This will deactivate (not delete) silent intervals. Clears the PendingIntents marked as \'MISSING\' in Stats.</string>
+    <string name="preference_clear_pi_title">Clear Silent Intervals</string>
+    <string name="preference_clear_pi_title_dialog">Clear PendingIntents</string>
+    <string name="preference_clear_pi_message_dialog">Click to confirm</string>
+    <string name="preference_clear_pi_positive_dialog">CONFIRM</string>
+    <string name="preference_clear_pi_negative_dialog">CANCEL</string>
+    <string name="preference_clear_pi_toast_dialog">clearing PendingIntents...</string>
+
+        <!-- Clear Database Preference -->
+    <string name="preference_clear_database_summary">Deletes all database entries. This will erase all silent intervals present in the database. This won\'t cancel PendingIntents.</string>
+    <string name="preference_clear_database_title">Clear Database</string>
+    <string name="preference_clear_database_title_dialog">Clear Database</string>
+    <string name="preference_clear_database_message_dialog">Click to confirm</string>
+    <string name="preference_clear_database_positive_dialog">CONFIRM</string>
+    <string name="preference_clear_database_negative_dialog">CANCEL</string>
+    <string name="preference_clear_database_toast_dialog">clearing database...</string>
+
+        <!-- Clear Demo Mode Preference -->
+    <string name="preference_demo_summary">Replaces the all silent intervals with dummies. This will not delete/deactivate anything. The dummies cannot mute audio.</string>
+    <string name="preference_demo_title">Demo Mode</string>
+    <string name="preference_demo_title_dialog">Demo Mode</string>
+    <string name="preference_demo_message_dialog">Click to confirm</string>
+    <string name="preference_demo_positive_dialog">CONFIRM</string>
+    <string name="preference_demo_negative_dialog">CANCEL</string>
+    <string name="preference_demo_toast_dialog1">Demo Mode on</string>
+    <string name="preference_demo_toast_dialog2">Demo Mode off</string>
+
+        <!-- Active PendingIntents Preference -->
+    <string name="preference_active_pi_summary">View information on the PendingIntents owned by this application.</string>
+    <string name="preference_active_pi_title">Currently Active PendingIntents</string>
+
+        <!-- Time Increment Dialog -->
+    <string name="preference_time_increment_dialog_title">Choose a Time Increment</string>
+    <string name="preference_time_increment_dialog_message">Integer in (0,60] of either minutes or hours.</string>
+    <string name="preference_time_increment_dialog_positive">SET</string>
+    <string name="preference_time_increment_dialog_negative">CANCEL</string>
+
+        <!-- Theme Keys -->
+    <string name="dark_theme" translatable="false">Dark Theme</string>
+    <string name="light_theme" translatable="false">Light Theme</string>
+
+    <!-- SilentIntervalValidator Error codes -->
+    <string name="error_end_date_missing">Please enter an end time.</string>
+    <string name="error_dates_match">Start and end time must not match.</string>
+    <string name="error_general_error">App not working correctly, please restart it.</string>
 </resources>
