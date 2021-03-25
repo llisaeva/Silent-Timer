@@ -23,6 +23,8 @@ public class SilentIntervalViewModel extends BaseObservable {
         mSilentInterval = interval;
     }
 
+    public String getUUID() { return mSilentInterval.getUuid(); }
+
     @Bindable
     public String getTitle() { return mSilentInterval.getTitle(); }
 

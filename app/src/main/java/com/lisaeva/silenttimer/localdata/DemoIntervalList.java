@@ -122,6 +122,9 @@ public class DemoIntervalList extends SilentIntervalList {
         mSharedPreferenceUtil.deactivateDummy(interval.getUuid());
     }
 
+    @Override
+    public boolean isEmpty() { return mPositionMap.isEmpty(); }
+
     private SilentInterval parseIntervalString(String intervalString) {
         String[] parsed = intervalString.split("\\|");
         SilentIntervalData data = new SilentIntervalData(parsed[0].trim(),

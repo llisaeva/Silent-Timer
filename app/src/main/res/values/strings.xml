@@ -87,7 +87,7 @@
 
         <!-- Clear List Preference -->
     <string name="preference_clear_list_summary">Removes all active silent intervals represented on the UI. This will deactivate them.</string>
-    <string name="preference_clear_list_title">Clear PendingIntents</string>
+    <string name="preference_clear_list_title">Clear Silent Intervals</string>
     <string name="preference_clear_list_title_dialog">Clear List</string>
     <string name="preference_clear_list_message_dialog">Click to confirm</string>
     <string name="preference_clear_list_positive_dialog">CONFIRM</string>
@@ -96,7 +96,7 @@
 
         <!-- Clear PendingIntents Preference -->
     <string name="preference_clear_pi_summary">Removes all active PendingIntents owned by this app. This will deactivate (not delete) silent intervals. Clears the PendingIntents marked as \'MISSING\' in Stats.</string>
-    <string name="preference_clear_pi_title">Clear Silent Intervals</string>
+    <string name="preference_clear_pi_title">Clear PendingIntents</string>
     <string name="preference_clear_pi_title_dialog">Clear PendingIntents</string>
     <string name="preference_clear_pi_message_dialog">Click to confirm</string>
     <string name="preference_clear_pi_positive_dialog">CONFIRM</string>

@@ -20,28 +20,28 @@
         "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\src\\main\\res\\drawable-mdpi\\trash_light.png"
     },
     {
-        "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
-    },
-    {
         "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_launcher_foreground.png.flat",
         "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_launcher_foreground.png"
     },
     {
-        "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_reorder_handle.png.flat",
-        "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\src\\main\\res\\drawable-mdpi\\reorder_handle.png"
+        "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_arrow.png.flat",
-        "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\arrow.png"
+        "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_add_light.png.flat",
+        "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\src\\main\\res\\drawable-xxhdpi\\add_light.png"
     },
     {
         "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_trash.png.flat",
         "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\trash.png"
     },
     {
-        "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_add_light.png.flat",
-        "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\src\\main\\res\\drawable-xxhdpi\\add_light.png"
+        "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_arrow.png.flat",
+        "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\arrow.png"
+    },
+    {
+        "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_reorder_handle.png.flat",
+        "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\src\\main\\res\\drawable-mdpi\\reorder_handle.png"
     },
     {
         "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_trash_light.xml.flat",
@@ -64,12 +64,12 @@
         "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_launcher_background.png"
     },
     {
-        "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_add_light.png.flat",
-        "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\src\\main\\res\\drawable-hdpi\\add_light.png"
-    },
-    {
         "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_trash.png.flat",
         "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\src\\main\\res\\drawable-hdpi\\trash.png"
+    },
+    {
+        "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_add_light.png.flat",
+        "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\src\\main\\res\\drawable-hdpi\\add_light.png"
     },
     {
         "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_schedule.xml.flat",
@@ -88,12 +88,12 @@
         "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\add.png"
     },
     {
-        "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_arrow.png.flat",
-        "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\src\\main\\res\\drawable-xhdpi\\arrow.png"
-    },
-    {
         "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_check_mark_light.png.flat",
         "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\check_mark_light.png"
+    },
+    {
+        "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_arrow.png.flat",
+        "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\src\\main\\res\\drawable-xhdpi\\arrow.png"
     },
     {
         "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_arrow_light.png.flat",
@@ -108,12 +108,12 @@
         "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_launcher_foreground.png"
     },
     {
-        "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_arrow.png.flat",
-        "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\src\\main\\res\\drawable-xxhdpi\\arrow.png"
-    },
-    {
         "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_reorder_handle_light.png.flat",
         "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\src\\main\\res\\drawable-xxhdpi\\reorder_handle_light.png"
+    },
+    {
+        "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_arrow.png.flat",
+        "source": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\src\\main\\res\\drawable-xxhdpi\\arrow.png"
     },
     {
         "merged": "C:\\Users\\lisli\\Documents\\Code\\Code\\Android\\SilentTimer\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_background.png.flat",

@@ -2,6 +2,7 @@ package com.lisaeva.silenttimer.ui;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -26,7 +27,7 @@ import com.lisaeva.silenttimer.viewmodel.SilentIntervalViewModel;
 /**
  * Controller for the Main screen, which displays the list of silent intervals.
  */
-public class ListFragment extends Fragment implements SilentIntervalList.ChangeListener{
+public class ListFragment extends Fragment {
     private static final int LAYOUT = R.layout.fragment_list;
     private static final int LAYOUT_MENU = R.menu.fragment_list;
     private static final int LAYOUT_LIST = R.id.recycler_view;
@@ -47,8 +48,6 @@ public class ListFragment extends Fragment implements SilentIntervalList.ChangeL
         super.onCreate(savedInstanceState);
         mMainActivityCallback = (MainActivityCallback) getActivity();
         mSharedPreferenceUtil = new SharedPreferenceUtil(mMainActivityCallback.getContext());
-        mSilentIntervalList = SilentIntervalListAccess.getInstance(mMainActivityCallback.getContext());
-        mSilentIntervalList.registerListListener(this);
     }
 
     @Override
@@ -71,7 +70,7 @@ public class ListFragment extends Fragment implements SilentIntervalList.ChangeL
     public void onDestroy() {
         super.onDestroy();
         if (mSilentIntervalList != null)
-            mSilentIntervalList.removeListListener(this);
+            mSilentIntervalList.removeListListener(mAdapter);
     }
 
     // Menu ----------------------------------------------------------------------------------------
@@ -111,15 +110,24 @@ public class ListFragment extends Fragment implements SilentIntervalList.ChangeL
     private void updateUI() {
         mSilentIntervalList = SilentIntervalListAccess.getInstance(mMainActivityCallback.getContext());
         mSilentIntervalList.loadList();
-        if (mSilentIntervalList.isEmpty()) {
+        if (mAdapter == null) {
+            mAdapter = new Adapter();
+        }
+        mSilentIntervalList.registerListListener(mAdapter);
+        mRecyclerView.setAdapter(mAdapter);
+        showEmptyView(mSilentIntervalList.isEmpty());
+    }
+
+    private void showEmptyView(boolean b) {
+        if (b) {
             mRecyclerView.setVisibility(View.GONE);
             mEmptyView.setVisibility(View.VISIBLE);
+            Log.d("showEmptyView()", "empty");
         } else {
             mEmptyView.setVisibility(View.GONE);
             mRecyclerView.setVisibility(View.VISIBLE);
+            Log.d("showEmptyView()", "nonempty");
         }
-        if (mAdapter == null)mAdapter = new Adapter();
-        mRecyclerView.setAdapter(mAdapter);
     }
 
     // Main Activity Callback ----------------------------------------------------------------------
@@ -151,15 +159,16 @@ public class ListFragment extends Fragment implements SilentIntervalList.ChangeL
             mViewModel = new SilentIntervalViewModel(interval);
             if (mSharedPreferenceUtil.isActivePendingIntent(interval.getUuid())) mViewModel.setActive(true);
             mBinding.setViewModel(mViewModel);
-
             mActiveSwitch.setOnCheckedChangeListener((view, isChecked) -> {
-                if (mViewModel.getActive() != isChecked) {
-                    if (isChecked) {
-                        mSilentIntervalList.activate(interval);
-                        mViewModel.setActive(true);
-                    } else {
-                        mSilentIntervalList.deactivate(interval);
-                        mViewModel.setActive(false);
+                if (mActiveSwitch.equals(view)) {
+                    if (mViewModel.getActive() != isChecked) {
+                        if (isChecked) {
+                            mSilentIntervalList.activate(interval);
+                            mViewModel.setActive(true);
+                        } else {
+                            mSilentIntervalList.deactivate(interval);
+                            mViewModel.setActive(false);
+                        }
                     }
                 }
             });
@@ -170,7 +179,7 @@ public class ListFragment extends Fragment implements SilentIntervalList.ChangeL
         @Override
         public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
             boolean active = mSharedPreferenceUtil.isActivePendingIntent(key);
-            if (mViewModel.getActive() != active) {
+            if (mViewModel.getUUID().equals(key) &&  mViewModel.getActive() != active) {
                 mViewModel.setActive(active);
             }
         }
@@ -178,7 +187,7 @@ public class ListFragment extends Fragment implements SilentIntervalList.ChangeL
 
     // Adapter class -------------------------------------------------------------------------------
 
-    private class Adapter extends RecyclerView.Adapter<ViewHolder>  {
+    private class Adapter extends RecyclerView.Adapter<ViewHolder> implements SilentIntervalList.ChangeListener {
         private static final int LAYOUT = R.layout.list_item;
 
         @NonNull
@@ -198,34 +207,37 @@ public class ListFragment extends Fragment implements SilentIntervalList.ChangeL
         }
 
         @Override public int getItemCount() { return mSilentIntervalList.size(); }
+
+        @Override
+        public void onListChanged() {
+            Log.d("onListChanged()", "received");
+            showEmptyView(mSilentIntervalList.isEmpty());
+            this.notifyDataSetChanged();
+        }
+
+        @Override
+        public void onItemRemoved(int position) {
+            if (mSilentIntervalList.isEmpty())showEmptyView(true);
+            this.notifyItemRemoved(position);
+        }
+
+        @Override
+        public void onRangeChanged(int positionStart, int itemCount) {
+            if (mSilentIntervalList.isEmpty())showEmptyView(true);
+            this.notifyItemRangeChanged(positionStart, itemCount);
+        }
+
+        @Override
+        public void onItemInserted(int position) {
+            if (mSilentIntervalList.size() == 1)showEmptyView(false);
+            this.notifyItemInserted(position);
+        }
+
+        @Override public void onItemChanged(int position) {
+            this.notifyItemRemoved(position);
+        }
+        @Override public void onItemMoved(int fromPosition, int toPosition) {
+            this.notifyItemMoved(fromPosition, toPosition);
+        }
     }
-
-    // List Events ---------------------------------------------------------------------------------
-
-    @Override
-    public void onListChanged() {
-        updateUI();
-        if (mAdapter != null)mAdapter.notifyDataSetChanged();
-    }
-
-    @Override
-    public void onItemRemoved(int position) {
-        if (mSilentIntervalList.isEmpty())updateUI();
-        else if (mAdapter != null)mAdapter.notifyItemRemoved(position);
-    }
-
-    @Override
-    public void onRangeChanged(int positionStart, int itemCount) {
-        if (mSilentIntervalList.isEmpty())updateUI();
-        else if (mAdapter != null)mAdapter.notifyItemRangeChanged(positionStart, itemCount);
-    }
-
-    @Override
-    public void onItemInserted(int position) {
-        if (mSilentIntervalList.size() == 1)updateUI();
-        else if (mAdapter != null)mAdapter.notifyItemInserted(position);
-    }
-
-    @Override public void onItemChanged(int position) { if (mAdapter != null)mAdapter.notifyItemRemoved(position); }
-    @Override public void onItemMoved(int fromPosition, int toPosition) { if (mAdapter != null)mAdapter.notifyItemMoved(fromPosition, toPosition);}
 }

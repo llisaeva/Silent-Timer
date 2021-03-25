@@ -31,6 +31,8 @@ public class SilentIntervalList implements Iterable<SilentInterval> {
         mListeners = new ArrayList<>();
         mDataSource = new SilentIntervalSource(c);
         mTempSilentInterval = new SilentInterval();
+        mPositionMap = new HashMap<>();
+        mUUIDMap = new HashMap<>();
     }
 
     // Temporary alarm storage for SilentIntervalFragment ------------------------------------------
@@ -47,10 +49,8 @@ public class SilentIntervalList implements Iterable<SilentInterval> {
      * Loads persisted SilentIntervals from a database, if it hasn't already.
      */
     public synchronized void loadList() {
-        if (!mLoaded || mUUIDMap == null || mPositionMap == null) {
+        if (!mLoaded) {
             new Thread(() -> {
-                mPositionMap = new HashMap<>();
-                mUUIDMap = new HashMap<>();
                 for (SilentInterval interval : mDataSource.getAll()) {
                     mUUIDMap.put(interval.getUuid(), interval);
                     mPositionMap.put(interval.getPosition(), interval);
@@ -127,7 +127,9 @@ public class SilentIntervalList implements Iterable<SilentInterval> {
      *              specified.
      * @return SilentInterval with the parameter index.
      */
-    public SilentInterval get(int index) { return mPositionMap.get(index); }
+    public SilentInterval get(int index) {
+        return mPositionMap.get(index);
+    }
 
     /**
      * Returns the SilentInterval with the UUID specified by the parameter.
@@ -219,5 +221,4 @@ public class SilentIntervalList implements Iterable<SilentInterval> {
     public void notifyItemChanged(int position) { for(ChangeListener listener : mListeners)listener.onItemChanged(position); }
     public void notifyItemMoved(int fromPosition, int toPosition) { for(ChangeListener listener : mListeners)listener.onItemMoved(fromPosition, toPosition); }
     public void notifyRangeChanged(int positionStart, int itemCount) { for(ChangeListener listener : mListeners)listener.onRangeChanged(positionStart, itemCount); }
-
 }
