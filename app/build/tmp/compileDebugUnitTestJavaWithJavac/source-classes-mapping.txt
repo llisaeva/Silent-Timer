@@ -1,2 +1,0 @@
-com/lisaeva/silenttimer/Test1.java
- com.lisaeva.silenttimer.Test1
