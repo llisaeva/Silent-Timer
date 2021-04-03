@@ -80,29 +80,37 @@ public class ImmediateFragment extends Fragment implements TimePickerDialog.Dial
     // Click Events --------------------------------------------------------------------------------
 
     public void onClickTime(int n) {
-        SilentInterval interval = new SilentInterval();
-        DateTime now = DateTime.now();
-        String endTime = SilentInterval.FORMATTER.print(now.plusMinutes(mSharedPreferenceUtil.getTimeIncrement(n)));
-        interval.setEndTime(endTime);
+        if(mMainActivityCallback.checkPermissions()) {
+            SilentInterval interval = new SilentInterval();
+            DateTime now = DateTime.now();
+            String endTime = SilentInterval.FORMATTER.print(now.plusMinutes(mSharedPreferenceUtil.getTimeIncrement(n)));
+            interval.setEndTime(endTime);
 
-        int resultCode = SilentIntervalValidator.validate(interval);
-        ImmediateViewModel viewModel = mBinding.getViewModel();
-        String toastMessage = "audio turned off for " + viewModel.getTime(n) + " " + viewModel.getUnit(n);
+            int resultCode = SilentIntervalValidator.validate(interval);
+            ImmediateViewModel viewModel = mBinding.getViewModel();
+            String toastMessage = "audio turned off for " + viewModel.getTime(n) + " " + viewModel.getUnit(n);
 
-        if (resultCode == SilentIntervalValidator.SUCCESS) {
-            mSilentIntervalList.add(interval);
-            Toast.makeText(mContext, toastMessage, Toast.LENGTH_LONG);
-            mMainActivityCallback.openListFragment();
+            if (resultCode == SilentIntervalValidator.SUCCESS) {
+                mSilentIntervalList.add(interval);
+                Toast.makeText(mContext, toastMessage, Toast.LENGTH_LONG);
+                mMainActivityCallback.openListFragment();
+            } else {
+                SilentIntervalValidator.showErrorMessage(getContext(), resultCode);
+            }
         } else {
-            SilentIntervalValidator.showErrorMessage(getContext(), resultCode);
+            mMainActivityCallback.requestPermissions();
         }
     }
 
     public void chooseClockTime() {
-        DateTime now = DateTime.now();
-        TimePickerDialog dialog = new TimePickerDialog(this, now.getHourOfDay(), now.getMinuteOfHour());
-        FragmentManager manager = getChildFragmentManager();
-        dialog.show(manager, null);
+        if (mMainActivityCallback.checkPermissions()) {
+            DateTime now = DateTime.now();
+            TimePickerDialog dialog = new TimePickerDialog(this, now.getHourOfDay(), now.getMinuteOfHour());
+            FragmentManager manager = getChildFragmentManager();
+            dialog.show(manager, null);
+        } else {
+            mMainActivityCallback.requestPermissions();
+        }
     }
 
     // TimePickerDialog Result ---------------------------------------------------------------------

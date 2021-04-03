@@ -68,9 +68,9 @@ public class ListFragment extends Fragment {
 
     @Override
     public void onDestroy() {
-        super.onDestroy();
         if (mSilentIntervalList != null)
             mSilentIntervalList.removeListListener(mAdapter);
+        super.onDestroy();
     }
 
     // Menu ----------------------------------------------------------------------------------------
@@ -83,24 +83,22 @@ public class ListFragment extends Fragment {
 
     @Override
     public boolean onOptionsItemSelected (MenuItem item) {
-        if (mMainActivityCallback.checkPermissions()) {
-            switch(item.getItemId()) {
-                case R.id.new_silent_interval:
+        switch(item.getItemId()) {
+            case R.id.new_silent_interval:
+                if (mMainActivityCallback.checkPermissions()) {
                     openAlarmFragment(null);
-                    break;
-                case R.id.new_immediate_silent_interval:
-                    mMainActivityCallback.openImmediateFragment();
-                    break;
-                case R.id.edit_list:
-                    mMainActivityCallback.openEditListFragment();
-                    break;
-                case R.id.settings:
-                    mMainActivityCallback.openSettings();
-                    break;
-                default: break;
-            }
-        } else {
-            mMainActivityCallback.requestPermissions();
+                } else mMainActivityCallback.requestPermissions();
+                break;
+            case R.id.new_immediate_silent_interval:
+                mMainActivityCallback.openImmediateFragment();
+                break;
+            case R.id.edit_list:
+                mMainActivityCallback.openEditListFragment();
+                break;
+            case R.id.settings:
+                mMainActivityCallback.openSettings();
+                break;
+            default: break;
         }
         return true;
     }
@@ -122,11 +120,9 @@ public class ListFragment extends Fragment {
         if (b) {
             mRecyclerView.setVisibility(View.GONE);
             mEmptyView.setVisibility(View.VISIBLE);
-            Log.d("showEmptyView()", "empty");
         } else {
             mEmptyView.setVisibility(View.GONE);
             mRecyclerView.setVisibility(View.VISIBLE);
-            Log.d("showEmptyView()", "nonempty");
         }
     }
 
@@ -163,8 +159,13 @@ public class ListFragment extends Fragment {
                 if (mActiveSwitch.equals(view)) {
                     if (mViewModel.getActive() != isChecked) {
                         if (isChecked) {
-                            mSilentIntervalList.activate(interval);
-                            mViewModel.setActive(true);
+                            if (mMainActivityCallback.checkPermissions()) {
+                                mSilentIntervalList.activate(interval);
+                                mViewModel.setActive(true);
+                            } else {
+                                mMainActivityCallback.requestPermissions();
+                                mActiveSwitch.setChecked(false);
+                            }
                         } else {
                             mSilentIntervalList.deactivate(interval);
                             mViewModel.setActive(false);
@@ -210,9 +211,10 @@ public class ListFragment extends Fragment {
 
         @Override
         public void onListChanged() {
-            Log.d("onListChanged()", "received");
-            showEmptyView(mSilentIntervalList.isEmpty());
-            this.notifyDataSetChanged();
+            getActivity().runOnUiThread(() -> {
+                showEmptyView(mSilentIntervalList.isEmpty());
+                Adapter.this.notifyDataSetChanged();
+            });
         }
 
         @Override
