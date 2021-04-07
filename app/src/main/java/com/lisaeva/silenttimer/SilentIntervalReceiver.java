@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.media.AudioManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import com.lisaeva.silenttimer.model.SilentInterval;
 import com.lisaeva.silenttimer.persistence.SharedPreferenceUtil;
 import org.joda.time.DateTime;
@@ -64,6 +65,7 @@ public class SilentIntervalReceiver extends BroadcastReceiver {
         Bundle bundle = new Bundle();
         DateTime startDate = DateTime.now();
         DateTime endDate = DateTime.now();
+        DateTime dif;
 
         startDate = startDate.withFields(SilentInterval.FORMATTER.parseLocalTime(startString));
         endDate = endDate.withFields(SilentInterval.FORMATTER.parseLocalTime(endString));
@@ -74,6 +76,8 @@ public class SilentIntervalReceiver extends BroadcastReceiver {
             endDate = endDate.plusDays(offset);
         }
 
+        dif = endDate.minus(startDate.getMillis());
+
         bundle.putString(EXTRA_UUID, interval.getUuid());
         bundle.putBoolean(EXTRA_REPEAT, interval.isRepeat());
 
@@ -82,8 +86,8 @@ public class SilentIntervalReceiver extends BroadcastReceiver {
             ArrayList<String> repeatCodes = new ArrayList<>(repeatDays.size());
 
             for (SilentInterval.Code weekday : repeatDays) {
-                String weekdayCode = formatInterval(startDate.withDayOfWeek(weekday.jodaTimeConstant()).minusDays(7),
-                        endDate.withDayOfWeek(weekday.jodaTimeConstant()).plusDays(offset).minusDays(7));
+                DateTime temp = startDate.withDayOfWeek(weekday.jodaTimeConstant());
+                String weekdayCode = formatInterval(temp, temp.plus(dif.getMillis()));
                 repeatCodes.add(weekdayCode);
             }
             bundle.putStringArrayList(EXTRA_WEEKDAYS, repeatCodes);
@@ -223,6 +227,10 @@ public class SilentIntervalReceiver extends BroadcastReceiver {
                 mIntervalQueue.add(parseInterval(i.next()));
             }
 
+            for (int i = 0; i< weekdaysList.size(); i++) {
+                Log.d("weekdaysList", weekdaysList.get(i));
+            }
+
             while (mIntervalQueue.peek().getEnd().isBeforeNow()) {
                 Interval interval = mIntervalQueue.poll();
                 Interval forward = new Interval (interval.getStart().plusDays(7), interval.getEnd().plusDays(7));
@@ -234,17 +242,24 @@ public class SilentIntervalReceiver extends BroadcastReceiver {
             startTime = mIntervalQueue.peek().getStart();
             endTime = mIntervalQueue.peek().getEnd();
 
+            Log.d("startTime", FORMATTER.print(startTime));
+            Log.d("endTime", FORMATTER.print(endTime));
+
+            for (int i = 0; i< weekdaysList.size(); i++) {
+                Log.d("weekdaysList", weekdaysList.get(i));
+            }
+
             intent.putExtra(EXTRA_WEEKDAYS, weekdaysList);
         } else {
             startTime = FORMATTER.parseDateTime(intent.getStringExtra(EXTRA_START));
             endTime = FORMATTER.parseDateTime(intent.getStringExtra(EXTRA_END));
-            
-            if (endTime.isBefore(DateTime.now())) {
+            while (endTime.isBeforeNow()) {
                 startTime = startTime.plusDays(1);
                 endTime = endTime.plusDays(1);
             }
         }
-        
+
+
         intent.putExtra(EXTRA_START, FORMATTER.print(startTime))
                 .putExtra(EXTRA_END, FORMATTER.print(endTime));
         return intent;
